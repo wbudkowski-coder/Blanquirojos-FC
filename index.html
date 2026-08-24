@@ -95,28 +95,6 @@ header {
     letter-spacing: 1px;
 }
 
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.players-link {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 9px 14px;
-    border: 1px solid var(--gold);
-    border-radius: 6px;
-    transition: .2s;
-}
-
-.players-link:hover {
-    background: var(--red);
-    color: var(--gold-light);
-}
-
 .social-links {
     display: flex;
     gap: 16px;
@@ -572,15 +550,6 @@ footer p {
         height: 45px;
     }
 
-    .header-right {
-        gap: 10px;
-    }
-
-    .players-link {
-        padding: 7px 9px;
-        font-size: 11px;
-    }
-
     .social-links {
         gap: 10px;
     }
@@ -662,6 +631,7 @@ footer p {
         max-width: 135px;
         max-height: 60px;
     }
+
 }
 
 </style>
@@ -692,42 +662,34 @@ footer p {
     </div>
 
 
-    <div class="header-right">
+    <div class="social-links">
 
-        <a href="zawodnicy.html" class="players-link">
-            ZAWODNICY
+        <a
+            href="https://www.instagram.com/blanquirojos_costablanca/"
+            target="_blank"
+            aria-label="Instagram">
+
+            <i class="fab fa-instagram"></i>
+
         </a>
 
-        <div class="social-links">
+        <a
+            href="https://www.youtube.com/@blanquirojos"
+            target="_blank"
+            aria-label="YouTube">
 
-            <a
-                href="https://www.instagram.com/blanquirojos_costablanca/"
-                target="_blank"
-                aria-label="Instagram">
+            <i class="fab fa-youtube"></i>
 
-                <i class="fab fa-instagram"></i>
+        </a>
 
-            </a>
+        <a
+            href="https://www.tiktok.com/@blanquirojos_costablanca"
+            target="_blank"
+            aria-label="TikTok">
 
-            <a
-                href="https://www.youtube.com/@blanquirojos"
-                target="_blank"
-                aria-label="YouTube">
+            <i class="fab fa-tiktok"></i>
 
-                <i class="fab fa-youtube"></i>
-
-            </a>
-
-            <a
-                href="https://www.tiktok.com/@blanquirojos_costablanca"
-                target="_blank"
-                aria-label="TikTok">
-
-                <i class="fab fa-tiktok"></i>
-
-            </a>
-
-        </div>
+        </a>
 
     </div>
 
@@ -1023,8 +985,6 @@ footer p {
 
 <section class="sponsors">
 
-    <!-- SPONSOR GŁÓWNY -->
-
     <div class="sponsors-title">
         Sponsor główny
     </div>
@@ -1038,8 +998,6 @@ footer p {
     </div>
 
 
-    <!-- PATRON MEDIALNY -->
-
     <div class="media-title">
         Patron medialny
     </div>
@@ -1052,8 +1010,6 @@ footer p {
 
     </div>
 
-
-    <!-- PARTNERZY -->
 
     <div class="partner-title">
         Partnerzy
