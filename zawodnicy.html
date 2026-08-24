@@ -7,16 +7,22 @@
 
 <title>Zawodnicy | Blanquirojos F.C.</title>
 
+<meta name="description"
+      content="Kadra Blanquirojos F.C. – zawodnicy i statystyki sezonu 2026/27.">
+
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 
 :root {
     --red: #8b1e2b;
+    --red-hover: #6e1620;
     --gold: #c2ab87;
     --gold-light: #d8c7a9;
     --dark: #121417;
+    --dark-card: #1a1d24;
+    --white: #ffffff;
     --light: #f4f4f6;
     --gray: #8c92a0;
 }
@@ -27,13 +33,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: var(--light);
     color: var(--dark);
+    line-height: 1.6;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header {
     background: var(--dark);
@@ -60,6 +73,8 @@ header {
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid var(--gold);
+    background: #111;
+    flex-shrink: 0;
 }
 
 .logo-container img {
@@ -70,77 +85,98 @@ header {
 
 .brand h1 {
     font-size: 21px;
+    letter-spacing: 1px;
 }
 
-.back-button {
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.home-button {
     background: var(--red);
     color: white;
     text-decoration: none;
-    padding: 10px 17px;
+    padding: 9px 14px;
     border-radius: 6px;
     border: 1px solid var(--gold);
+    font-size: 14px;
     font-weight: bold;
 }
 
-/* PAGE */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
 
-.page {
-    max-width: 1150px;
+.social-links a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: var(--gold);
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.container {
+    max-width: 1100px;
     margin: auto;
     padding: 60px 20px 80px;
 }
 
-.title {
+.page-title {
     text-align: center;
     font-size: 38px;
     text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
-.title::after {
-    content: "";
-    display: block;
-    width: 55px;
-    height: 4px;
-    background: var(--red);
-    margin: 12px auto;
-}
-
-.subtitle {
+.page-subtitle {
     text-align: center;
     color: var(--gray);
     margin-bottom: 45px;
 }
 
-/* PLAYERS */
+/* =========================
+   PLAYERS
+========================= */
 
 .squad-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 18px;
 }
 
 .player-card {
     background: white;
     border-radius: 12px;
-    padding: 22px 18px;
+    padding: 24px 15px;
     text-align: center;
     border-top: 4px solid var(--red);
     box-shadow: 0 5px 15px rgba(0,0,0,.07);
+    transition: .2s;
 }
 
 .player-card:hover {
+    transform: translateY(-4px);
     border-top-color: var(--gold);
 }
 
 .number {
-    font-size: 36px;
+    font-size: 38px;
     font-weight: 900;
     color: var(--red);
 }
 
 .player-name {
+    font-size: 16px;
     font-weight: bold;
-    font-size: 17px;
     margin-top: 5px;
 }
 
@@ -150,36 +186,107 @@ header {
     margin-bottom: 18px;
 }
 
-/* STATYSTYKI */
+/* =========================
+   PLAYER STATS
+========================= */
 
 .stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 7px;
-    margin-top: 15px;
+    gap: 6px;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
 }
 
 .stat {
-    background: #f1f1f3;
-    border-radius: 7px;
-    padding: 8px 4px;
+    text-align: center;
 }
 
 .stat-number {
     display: block;
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--red);
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--dark);
 }
 
 .stat-label {
     display: block;
-    font-size: 10px;
+    font-size: 9px;
     color: var(--gray);
     text-transform: uppercase;
 }
 
-/* FOOTER */
+/* =========================
+   SPONSORS
+========================= */
+
+.sponsors {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 30px;
+}
+
+.sponsors-title,
+.media-title,
+.partner-title {
+    color: var(--gray);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.main-sponsor {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.main-sponsor img {
+    max-width: 340px;
+    max-height: 130px;
+    object-fit: contain;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.10);
+}
+
+.media-sponsor {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 45px;
+}
+
+.media-sponsor img {
+    max-width: 250px;
+    max-height: 80px;
+    object-fit: contain;
+    background: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.partner-logos img {
+    max-width: 160px;
+    max-height: 70px;
+    object-fit: contain;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     background: var(--dark);
@@ -189,18 +296,28 @@ footer {
     border-top: 4px solid var(--gold);
 }
 
+footer strong {
+    font-size: 18px;
+}
+
 footer p {
     color: var(--gold-light);
     font-size: 14px;
     margin-top: 5px;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
 
     header {
         padding: 10px 14px;
+    }
+
+    .brand {
+        gap: 9px;
     }
 
     .brand h1 {
@@ -212,16 +329,28 @@ footer p {
         height: 45px;
     }
 
-    .back-button {
-        padding: 8px 10px;
+    .header-right {
+        gap: 8px;
+    }
+
+    .home-button {
+        padding: 7px 9px;
         font-size: 11px;
     }
 
-    .page {
+    .social-links {
+        gap: 9px;
+    }
+
+    .social-links a {
+        font-size: 17px;
+    }
+
+    .container {
         padding: 45px 15px 60px;
     }
 
-    .title {
+    .page-title {
         font-size: 27px;
     }
 
@@ -246,20 +375,27 @@ footer p {
         font-size: 12px;
     }
 
-    .stats {
-        gap: 5px;
-    }
-
-    .stat {
-        padding: 6px 2px;
-    }
-
     .stat-number {
         font-size: 15px;
     }
 
     .stat-label {
         font-size: 8px;
+    }
+
+    .main-sponsor img {
+        max-width: 280px;
+        max-height: 110px;
+    }
+
+    .media-sponsor img {
+        max-width: 210px;
+        max-height: 70px;
+    }
+
+    .partner-logos img {
+        max-width: 135px;
+        max-height: 60px;
     }
 }
 
@@ -269,6 +405,10 @@ footer p {
 
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
     <div class="brand">
@@ -276,8 +416,8 @@ footer p {
         <div class="logo-container">
 
             <img
-            src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
-            alt="Blanquirojos F.C.">
+                src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
+                alt="Blanquirojos F.C.">
 
         </div>
 
@@ -285,703 +425,365 @@ footer p {
 
     </div>
 
-    <a href="index.html" class="back-button">
-        ← STRONA GŁÓWNA
-    </a>
+    <div class="header-right">
+
+        <a href="index.html" class="home-button">
+            ← STRONA GŁÓWNA
+        </a>
+
+        <div class="social-links">
+
+            <a href="https://www.instagram.com/blanquirojos_costablanca/"
+               target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.youtube.com/@blanquirojos"
+               target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+
+            <a href="https://www.tiktok.com/@blanquirojos_costablanca"
+               target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+
+        </div>
+
+    </div>
 
 </header>
 
 
-<main class="page">
+<!-- =========================
+     CONTENT
+========================= -->
 
-    <h2 class="title">
+<main class="container">
+
+    <h2 class="page-title">
         KADRA ZESPOŁU
     </h2>
 
-    <p class="subtitle">
+    <p class="page-subtitle">
         Blanquirojos F.C. • Temporada 2026/27
     </p>
 
 
     <div class="squad-grid">
 
-
-        <!-- #1 -->
-
         <div class="player-card">
-
             <div class="number">#1</div>
-
-            <div class="player-name">
-                Wojciech Budkowski
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Wojciech Budkowski</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Mecze</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Gole</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Asysty</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Żółte</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Czerwone</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Minuty</span>
-                </div>
-
+                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
+                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
+                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #2 -->
-
         <div class="player-card">
-
             <div class="number">#2</div>
-
-            <div class="player-name">
-                Piotr Tokaj
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Piotr Tokaj</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Mecze</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Gole</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Asysty</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Żółte</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Czerwone</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Minuty</span>
-                </div>
-
+                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
+                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
+                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #3 -->
-
         <div class="player-card">
-
             <div class="number">#3</div>
-
-            <div class="player-name">
-                Szymon Dino Przygoda
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Szymon Dino Przygoda</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Mecze</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Gole</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Asysty</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Żółte</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Czerwone</span>
-                </div>
-
-                <div class="stat">
-                    <span class="stat-number">0</span>
-                    <span class="stat-label">Minuty</span>
-                </div>
-
+                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
+                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
+                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #4 -->
-
         <div class="player-card">
-
             <div class="number">#4</div>
-
-            <div class="player-name">
-                Artur K.
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Artur K.</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #5 -->
-
         <div class="player-card">
-
             <div class="number">#5</div>
-
-            <div class="player-name">
-                Krzysztof Kozioł
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Krzysztof Kozioł</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #6 -->
-
         <div class="player-card">
-
             <div class="number">#6</div>
-
-            <div class="player-name">
-                Igor Kępa
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Igor Kępa</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #7 -->
-
         <div class="player-card">
-
             <div class="number">#7</div>
-
-            <div class="player-name">
-                Arnold Różewicz
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Arnold Różewicz</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #8 -->
-
         <div class="player-card">
-
             <div class="number">#8</div>
-
-            <div class="player-name">
-                Adam Hejducki
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Adam Hejducki</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #9 -->
-
         <div class="player-card">
-
             <div class="number">#9</div>
-
-            <div class="player-name">
-                Adam Czernia
-            </div>
-
-            <div class="role">
-                Kapitan / Trener
-            </div>
-
+            <div class="player-name">Adam Czernia</div>
+            <div class="role">Kapitan / Trener</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #10 -->
-
         <div class="player-card">
-
             <div class="number">#10</div>
-
-            <div class="player-name">
-                Maciej Pawlicki
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Maciej Pawlicki</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #11 -->
-
         <div class="player-card">
-
             <div class="number">#11</div>
-
-            <div class="player-name">
-                Paweł Kępa
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Paweł Kępa</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #14 -->
-
         <div class="player-card">
-
             <div class="number">#14</div>
-
-            <div class="player-name">
-                Mindaugas Vilimas
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Mindaugas Vilimas</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #15 -->
-
         <div class="player-card">
-
             <div class="number">#15</div>
-
-            <div class="player-name">
-                Jerzy Melgies
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Jerzy Melgies</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #17 -->
-
         <div class="player-card">
-
             <div class="number">#17</div>
-
-            <div class="player-name">
-                Nerijus
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Nerijus</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #18 -->
-
         <div class="player-card">
-
             <div class="number">#18</div>
-
-            <div class="player-name">
-                Bartek Piętka
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Bartek Piętka</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #19 -->
-
         <div class="player-card">
-
             <div class="number">#19</div>
-
-            <div class="player-name">
-                Marcin Kaproń
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Marcin Kaproń</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #20 -->
-
         <div class="player-card">
-
             <div class="number">#20</div>
-
-            <div class="player-name">
-                Michał Cegłowski
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Michał Cegłowski</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #21 -->
-
         <div class="player-card">
-
             <div class="number">#21</div>
-
-            <div class="player-name">
-                Michał Osomański
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Michał Osomański</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #25 -->
-
         <div class="player-card">
-
             <div class="number">#25</div>
-
-            <div class="player-name">
-                Dariusz Jadczak
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Dariusz Jadczak</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #26 -->
-
         <div class="player-card">
-
             <div class="number">#26</div>
-
-            <div class="player-name">
-                Szymon Szcześniak
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Szymon Szcześniak</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #44 -->
-
         <div class="player-card">
-
             <div class="number">#44</div>
-
-            <div class="player-name">
-                Daniel Niedzielski
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Daniel Niedzielski</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #47 -->
-
         <div class="player-card">
-
             <div class="number">#47</div>
-
-            <div class="player-name">
-                Michał Wycisk
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Michał Wycisk</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
-
-        <!-- #99 -->
-
         <div class="player-card">
-
             <div class="number">#99</div>
-
-            <div class="player-name">
-                Patryk Wajszczuk
-            </div>
-
-            <div class="role">
-                Zawodnik
-            </div>
-
+            <div class="player-name">Patryk Wajszczuk</div>
+            <div class="role">Zawodnik</div>
             <div class="stats">
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Mecze</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Gole</span></div>
                 <div class="stat"><span class="stat-number">0</span><span class="stat-label">Asysty</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Żółte</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Czerwone</span></div>
-                <div class="stat"><span class="stat-number">0</span><span class="stat-label">Minuty</span></div>
             </div>
-
         </div>
 
     </div>
 
+
+    <!-- =========================
+         SPONSORZY
+    ========================= -->
+
+    <section class="sponsors">
+
+        <div class="sponsors-title">
+            Sponsor główny
+        </div>
+
+        <div class="main-sponsor">
+
+            <img
+                src="https://i.postimg.cc/NLW0djqm/LOGO-copia(1)(2)(1).png"
+                alt="Sponsor główny">
+
+        </div>
+
+
+        <div class="media-title">
+            Patron medialny
+        </div>
+
+        <div class="media-sponsor">
+
+            <img
+                src="https://i.postimg.cc/CdZ1Cftb/PC-LOGO-2025.png"
+                alt="Polska Costa - Patron Medialny">
+
+        </div>
+
+
+        <div class="partner-title">
+            Partnerzy
+        </div>
+
+        <div class="partner-logos">
+
+            <img
+                src="https://i.postimg.cc/vDpm0ZF6/logotyp-Kids-Zone.png"
+                alt="KidsZone">
+
+            <img
+                src="https://i.postimg.cc/Cz2kwgq7/4f184fdf-0cae-4d6b-a028-5c82d30dd9c2.jpg"
+                alt="Partner Blanquirojos F.C.">
+
+        </div>
+
+    </section>
+
 </main>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
