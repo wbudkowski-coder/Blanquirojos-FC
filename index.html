@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Blanquirojos F.C. | Costa Blanca</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Blanquirojos F.C. – polski klub piłkarski na Costa Blanca. Sezon 2026/27.">
+<title>Blanquirojos F.C. | Costa Blanca</title>
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta name="description"
+      content="Blanquirojos F.C. – polski klub piłkarski na Costa Blanca. Sezon 2026/27.">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 
@@ -91,6 +93,28 @@ header {
 .brand h1 {
     font-size: 21px;
     letter-spacing: 1px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.players-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 9px 14px;
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    transition: .2s;
+}
+
+.players-link:hover {
+    background: var(--red);
+    color: var(--gold-light);
 }
 
 .social-links {
@@ -270,47 +294,6 @@ section {
 }
 
 /* =========================
-   SQUAD
-========================= */
-
-.squad-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 18px;
-}
-
-.player-card {
-    background: white;
-    border-radius: 10px;
-    padding: 22px 15px;
-    text-align: center;
-    border-top: 4px solid var(--red);
-    box-shadow: 0 5px 15px rgba(0,0,0,.06);
-    transition: .2s;
-}
-
-.player-card:hover {
-    transform: translateY(-4px);
-    border-top-color: var(--gold);
-}
-
-.number {
-    font-size: 35px;
-    font-weight: 900;
-    color: var(--red);
-}
-
-.player-name {
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-.role {
-    color: var(--gray);
-    font-size: 13px;
-}
-
-/* =========================
    TABELA LIGOWA
 ========================= */
 
@@ -469,7 +452,7 @@ section {
 }
 
 /* =========================
-   SPONSORS
+   SPONSORZY
 ========================= */
 
 .sponsors {
@@ -524,12 +507,14 @@ section {
     box-shadow: 0 5px 15px rgba(0,0,0,.06);
 }
 
-/* PARTNER */
+/* PARTNERZY */
 
 .partner-logos {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
 .partner-logos img {
@@ -539,6 +524,7 @@ section {
     background: white;
     padding: 10px 15px;
     border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.06);
 }
 
 /* =========================
@@ -586,12 +572,21 @@ footer p {
         height: 45px;
     }
 
+    .header-right {
+        gap: 10px;
+    }
+
+    .players-link {
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+
     .social-links {
-        gap: 11px;
+        gap: 10px;
     }
 
     .social-links a {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .hero {
@@ -633,27 +628,6 @@ footer p {
         font-size: 25px;
     }
 
-    .squad-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .player-card {
-        padding: 18px 8px;
-    }
-
-    .number {
-        font-size: 29px;
-    }
-
-    .player-name {
-        font-size: 14px;
-    }
-
-    .role {
-        font-size: 12px;
-    }
-
     .league-table th {
         padding: 13px 8px;
         font-size: 11px;
@@ -691,9 +665,11 @@ footer p {
 }
 
 </style>
+
 </head>
 
 <body>
+
 
 <!-- =========================
      HEADER
@@ -715,25 +691,43 @@ footer p {
 
     </div>
 
-    <div class="social-links">
 
-        <a href="https://www.instagram.com/blanquirojos_costablanca/"
-           target="_blank"
-           aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
+    <div class="header-right">
+
+        <a href="zawodnicy.html" class="players-link">
+            ZAWODNICY
         </a>
 
-        <a href="https://www.youtube.com/@blanquirojos"
-           target="_blank"
-           aria-label="YouTube">
-            <i class="fab fa-youtube"></i>
-        </a>
+        <div class="social-links">
 
-        <a href="https://www.tiktok.com/@blanquirojos_costablanca"
-           target="_blank"
-           aria-label="TikTok">
-            <i class="fab fa-tiktok"></i>
-        </a>
+            <a
+                href="https://www.instagram.com/blanquirojos_costablanca/"
+                target="_blank"
+                aria-label="Instagram">
+
+                <i class="fab fa-instagram"></i>
+
+            </a>
+
+            <a
+                href="https://www.youtube.com/@blanquirojos"
+                target="_blank"
+                aria-label="YouTube">
+
+                <i class="fab fa-youtube"></i>
+
+            </a>
+
+            <a
+                href="https://www.tiktok.com/@blanquirojos_costablanca"
+                target="_blank"
+                aria-label="TikTok">
+
+                <i class="fab fa-tiktok"></i>
+
+            </a>
+
+        </div>
 
     </div>
 
@@ -753,9 +747,13 @@ footer p {
             src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
             alt="Blanquirojos F.C.">
 
-        <h2>BLANQUIROJOS F.C.</h2>
+        <h2>
+            BLANQUIROJOS F.C.
+        </h2>
 
-        <p>Más que un equipo</p>
+        <p>
+            Más que un equipo
+        </p>
 
         <a href="#mecz" class="hero-button">
             NAJBLIŻSZY MECZ
@@ -776,15 +774,23 @@ footer p {
         LIGA FRATELO • TERCERA DIVISIÓN
     </span>
 
-    <h2>NAJBLIŻSZY MECZ</h2>
+    <h2>
+        NAJBLIŻSZY MECZ
+    </h2>
 
     <div class="teams">
 
-        <span>BLANQUIROJOS F.C.</span>
+        <span>
+            BLANQUIROJOS F.C.
+        </span>
 
-        <span class="vs">VS</span>
+        <span class="vs">
+            VS
+        </span>
 
-        <span>LIONS DE COSTA</span>
+        <span>
+            LIONS DE COSTA
+        </span>
 
     </div>
 
@@ -814,69 +820,6 @@ footer p {
 
 
 <!-- =========================
-     KADRA
-========================= -->
-
-<section id="druzyna">
-
-    <h2 class="section-title">
-        KADRA ZESPOŁU
-    </h2>
-
-    <div class="squad-grid">
-
-        <div class="player-card"><div class="number">#1</div><div class="player-name">Wojciech Budkowski</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#2</div><div class="player-name">Piotr Tokaj</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#3</div><div class="player-name">Szymon Dino Przygoda</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#4</div><div class="player-name">Artur K.</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#5</div><div class="player-name">Krzysztof Kozioł</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#6</div><div class="player-name">Igor Kępa</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#7</div><div class="player-name">Arnold Różewicz</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#8</div><div class="player-name">Adam Hejducki</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#9</div><div class="player-name">Adam Czernia</div><div class="role">Kapitan / Trener</div></div>
-
-        <div class="player-card"><div class="number">#10</div><div class="player-name">Maciej Pawlicki</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#11</div><div class="player-name">Paweł Kępa</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#14</div><div class="player-name">Mindaugas Vilimas</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#15</div><div class="player-name">Jerzy Melgies</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#17</div><div class="player-name">Nerijus</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#18</div><div class="player-name">Bartek Piętka</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#19</div><div class="player-name">Marcin Kaproń</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#20</div><div class="player-name">Michał Cegłowski</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#21</div><div class="player-name">Michał Osomański</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#25</div><div class="player-name">Dariusz Jadczak</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#26</div><div class="player-name">Szymon Szcześniak</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#44</div><div class="player-name">Daniel Niedzielski</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#47</div><div class="player-name">Michał Wycisk</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#99</div><div class="player-name">Patryk Wajszczuk</div><div class="role">Zawodnik</div></div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
      TABELA LIGOWA
 ========================= -->
 
@@ -891,12 +834,14 @@ footer p {
         <table class="league-table">
 
             <thead>
+
                 <tr>
                     <th>#</th>
                     <th>DRUŻYNA</th>
                     <th>M</th>
                     <th>PKT</th>
                 </tr>
+
             </thead>
 
             <tbody>
@@ -1003,6 +948,7 @@ footer p {
 
         </table>
 
+
         <div class="table-legend">
 
             <span>
@@ -1034,27 +980,32 @@ footer p {
 
     <div class="social-buttons">
 
-        <a class="social-button"
-           href="https://www.instagram.com/blanquirojos_costablanca/"
-           target="_blank">
+        <a
+            class="social-button"
+            href="https://www.instagram.com/blanquirojos_costablanca/"
+            target="_blank">
 
             <i class="fab fa-instagram"></i>
             Instagram
 
         </a>
 
-        <a class="social-button"
-           href="https://www.youtube.com/@blanquirojos"
-           target="_blank">
+
+        <a
+            class="social-button"
+            href="https://www.youtube.com/@blanquirojos"
+            target="_blank">
 
             <i class="fab fa-youtube"></i>
             YouTube
 
         </a>
 
-        <a class="social-button"
-           href="https://www.tiktok.com/@blanquirojos_costablanca"
-           target="_blank">
+
+        <a
+            class="social-button"
+            href="https://www.tiktok.com/@blanquirojos_costablanca"
+            target="_blank">
 
             <i class="fab fa-tiktok"></i>
             TikTok
@@ -1072,6 +1023,8 @@ footer p {
 
 <section class="sponsors">
 
+    <!-- SPONSOR GŁÓWNY -->
+
     <div class="sponsors-title">
         Sponsor główny
     </div>
@@ -1084,6 +1037,8 @@ footer p {
 
     </div>
 
+
+    <!-- PATRON MEDIALNY -->
 
     <div class="media-title">
         Patron medialny
@@ -1098,22 +1053,23 @@ footer p {
     </div>
 
 
+    <!-- PARTNERZY -->
+
     <div class="partner-title">
-        Partner
+        Partnerzy
     </div>
 
-    <<div class="partner-logos">
+    <div class="partner-logos">
 
-    <img
-        src="https://i.postimg.cc/vDpm0ZF6/logotyp-Kids-Zone.png"
-        alt="KidsZone">
+        <img
+            src="https://i.postimg.cc/vDpm0ZF6/logotyp-Kids-Zone.png"
+            alt="KidsZone">
 
-    <img
-        src="https://i.postimg.cc/Cz2kwgq7/4f184fdf-0cae-4d6b-a028-5c82d30dd9c2.jpg"
-        alt="Partner Blanquirojos F.C.">
+        <img
+            src="https://i.postimg.cc/Cz2kwgq7/4f184fdf-0cae-4d6b-a028-5c82d30dd9c2.jpg"
+            alt="Partner Blanquirojos F.C.">
 
-</div>
-
+    </div>
 
 </section>
 
@@ -1140,6 +1096,7 @@ footer p {
     </p>
 
 </footer>
+
 
 </body>
 </html>
