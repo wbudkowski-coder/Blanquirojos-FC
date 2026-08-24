@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
 
 <meta charset="UTF-8">
@@ -8,10 +9,10 @@
 <title>Blanquirojos F.C. | Costa Blanca</title>
 
 <meta name="description"
-      content="Blanquirojos F.C. – polski klub piłkarski na Costa Blanca. Sezon 2026/27.">
+content="Blanquirojos F.C. – polski klub piłkarski na Costa Blanca. Sezon 2026/27.">
 
 <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 
@@ -95,36 +96,55 @@ header {
     letter-spacing: 1px;
 }
 
+/* =========================
+   NAWIGACJA
+========================= */
+
 .header-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
-.players-link {
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-button {
     color: white;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
-    padding: 9px 14px;
+    padding: 8px 13px;
     border: 1px solid var(--gold);
     border-radius: 6px;
     transition: .2s;
+    white-space: nowrap;
 }
 
-.players-link:hover {
+.nav-button:hover {
     background: var(--red);
     color: var(--gold-light);
 }
 
+/* SOCIALE */
+
 .social-links {
     display: flex;
-    gap: 16px;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 2px;
 }
 
 .social-links a {
     color: white;
-    font-size: 21px;
+    font-size: 20px;
     text-decoration: none;
     transition: .2s;
 }
@@ -147,8 +167,8 @@ header {
 
     background:
         linear-gradient(
-            rgba(18,20,23,.82),
-            rgba(18,20,23,.92)
+            rgba(18,20,23,.55),
+            rgba(18,20,23,.82)
         ),
         url("https://i.postimg.cc/SjsqF2bv/IMG-5482.jpg")
         center/cover no-repeat;
@@ -179,28 +199,11 @@ header {
 .hero p {
     font-size: 22px;
     color: var(--gold-light);
-    margin: 15px 0 30px;
-}
-
-.hero-button {
-    display: inline-block;
-    background: var(--red);
-    color: white;
-    padding: 13px 28px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    border: 1px solid var(--gold);
-    transition: .2s;
-}
-
-.hero-button:hover {
-    background: var(--red-hover);
-    color: var(--gold-light);
+    margin-top: 15px;
 }
 
 /* =========================
-   NEXT MATCH
+   NAJBLIŻSZY MECZ
 ========================= */
 
 .next-match {
@@ -227,21 +230,18 @@ header {
     border-radius: 30px;
     font-size: 13px;
     font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.next-match h2 {
     margin-bottom: 20px;
 }
 
-/* LOGA DRUŻYN */
+.next-match h2 {
+    margin-bottom: 25px;
+}
 
 .match-teams {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 35px;
-    margin: 25px 0;
 }
 
 .match-team {
@@ -249,31 +249,28 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    min-width: 170px;
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 150px;
 }
 
 .match-team img {
-    width: 95px;
-    height: 95px;
-    object-fit: contain;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
     border-radius: 50%;
     border: 2px solid var(--gold);
     background: white;
-    padding: 5px;
-}
-
-.match-team strong {
-    font-size: 17px;
 }
 
 .match-vs {
     color: var(--red);
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 900;
 }
 
 .match-info {
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     gap: 25px;
@@ -317,7 +314,7 @@ section {
 }
 
 /* =========================
-   SOCIAL
+   SOCIAL MEDIA
 ========================= */
 
 .social-section {
@@ -452,7 +449,7 @@ footer p {
    MOBILE
 ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     header {
         padding: 10px 14px;
@@ -472,16 +469,23 @@ footer p {
     }
 
     .header-right {
-        gap: 10px;
+        gap: 6px;
+        flex-direction: column;
+        align-items: flex-end;
     }
 
-    .players-link {
-        padding: 7px 9px;
-        font-size: 11px;
+    .nav-buttons {
+        gap: 6px;
+    }
+
+    .nav-button {
+        padding: 7px 8px;
+        font-size: 10px;
     }
 
     .social-links {
-        gap: 10px;
+        gap: 12px;
+        margin-top: 1px;
     }
 
     .social-links a {
@@ -514,24 +518,26 @@ footer p {
     }
 
     .match-teams {
-        gap: 8px;
+        gap: 12px;
     }
 
     .match-team {
-        min-width: 105px;
+        min-width: 100px;
+        font-size: 14px;
     }
 
     .match-team img {
-        width: 75px;
-        height: 75px;
-    }
-
-    .match-team strong {
-        font-size: 13px;
+        width: 70px;
+        height: 70px;
     }
 
     .match-vs {
-        font-size: 19px;
+        font-size: 18px;
+    }
+
+    .match-info {
+        gap: 12px;
+        font-size: 13px;
     }
 
     .section-title {
@@ -558,6 +564,7 @@ footer p {
 
 </head>
 
+
 <body>
 
 
@@ -577,59 +584,37 @@ footer p {
 
         </div>
 
-        <h1>
-            BLANQUIROJOS F.C.
-        </h1>
+        <h1>BLANQUIROJOS F.C.</h1>
 
     </div>
 
 
     <div class="header-right">
 
-    <a href="zawodnicy.html" class="players-link">
-        ZAWODNICY
-    </a>
+        <!-- ZAKŁADKI -->
 
-    <a href="tabela.html" class="players-link">
-        TABELA
-    </a>
+        <div class="nav-buttons">
 
-    <div class="social-links">
+            <a
+                href="tabela.html"
+                class="nav-button">
 
-        <a
-            href="https://www.instagram.com/blanquirojos_costablanca/"
-            target="_blank"
-            aria-label="Instagram">
+                TABELA
 
-            <i class="fab fa-instagram"></i>
+            </a>
 
-        </a>
+            <a
+                href="zawodnicy.html"
+                class="nav-button">
 
-        <a
-            href="https://www.youtube.com/@blanquirojos"
-            target="_blank"
-            aria-label="YouTube">
+                ZAWODNICY
 
-            <i class="fab fa-youtube"></i>
+            </a>
 
-        </a>
+        </div>
 
-        <a
-            href="https://www.tiktok.com/@blanquirojos_costablanca"
-            target="_blank"
-            aria-label="TikTok">
 
-            <i class="fab fa-tiktok"></i>
-
-        </a>
-
-    </div>
-
-</div>
-
-        <a href="zawodnicy.html" class="players-link">
-            ZAWODNICY
-        </a>
+        <!-- SOCIALE W DRUGIEJ LINII -->
 
         <div class="social-links">
 
@@ -642,6 +627,7 @@ footer p {
 
             </a>
 
+
             <a
                 href="https://www.youtube.com/@blanquirojos"
                 target="_blank"
@@ -650,6 +636,7 @@ footer p {
                 <i class="fab fa-youtube"></i>
 
             </a>
+
 
             <a
                 href="https://www.tiktok.com/@blanquirojos_costablanca"
@@ -688,20 +675,16 @@ footer p {
             Más que un equipo
         </p>
 
-        <a href="#mecz" class="hero-button">
-            NAJBLIŻSZY MECZ
-        </a>
-
     </div>
 
 </section>
 
 
 <!-- =========================
-     NEXT MATCH
+     NAJBLIŻSZY MECZ
 ========================= -->
 
-<div class="next-match" id="mecz">
+<div class="next-match">
 
     <span class="badge">
         LIGA FRATELO • TERCERA DIVISIÓN
@@ -711,6 +694,7 @@ footer p {
         NAJBLIŻSZY MECZ
     </h2>
 
+
     <div class="match-teams">
 
         <div class="match-team">
@@ -719,9 +703,9 @@ footer p {
                 src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
                 alt="Blanquirojos F.C.">
 
-            <strong>
+            <span>
                 BLANQUIROJOS F.C.
-            </strong>
+            </span>
 
         </div>
 
@@ -737,9 +721,9 @@ footer p {
                 src="https://i.postimg.cc/sBx2xQCY/IMG-5872.jpg"
                 alt="Lions de Costa">
 
-            <strong>
+            <span>
                 LIONS DE COSTA
-            </strong>
+            </span>
 
         </div>
 
@@ -749,24 +733,39 @@ footer p {
     <div class="match-info">
 
         <span>
+
             <i class="far fa-calendar"></i>
+
             12.09.2026
+
         </span>
 
+
         <span>
+
             <i class="far fa-clock"></i>
+
             21:00
+
         </span>
 
+
         <span>
+
             <i class="fas fa-location-dot"></i>
+
             Torrevieja
+
         </span>
 
     </div>
 
 </div>
 
+
+<!-- =========================
+     GŁÓWNA TREŚĆ
+========================= -->
 
 <div class="container">
 
@@ -781,6 +780,7 @@ footer p {
         BLANQUIROJOS W SIECI
     </h2>
 
+
     <div class="social-buttons">
 
         <a
@@ -789,6 +789,7 @@ footer p {
             target="_blank">
 
             <i class="fab fa-instagram"></i>
+
             Instagram
 
         </a>
@@ -800,6 +801,7 @@ footer p {
             target="_blank">
 
             <i class="fab fa-youtube"></i>
+
             YouTube
 
         </a>
@@ -811,6 +813,7 @@ footer p {
             target="_blank">
 
             <i class="fab fa-tiktok"></i>
+
             TikTok
 
         </a>
@@ -826,9 +829,15 @@ footer p {
 
 <section class="sponsors">
 
+
+    <!-- SPONSOR GŁÓWNY -->
+
     <div class="sponsors-title">
+
         Sponsor główny
+
     </div>
+
 
     <div class="main-sponsor">
 
@@ -839,9 +848,14 @@ footer p {
     </div>
 
 
+    <!-- PATRON MEDIALNY -->
+
     <div class="media-title">
+
         Patron medialny
+
     </div>
+
 
     <div class="media-sponsor">
 
@@ -852,15 +866,21 @@ footer p {
     </div>
 
 
+    <!-- PARTNERZY -->
+
     <div class="partner-title">
+
         Partnerzy
+
     </div>
+
 
     <div class="partner-logos">
 
         <img
             src="https://i.postimg.cc/vDpm0ZF6/logotyp-Kids-Zone.png"
             alt="KidsZone">
+
 
         <img
             src="https://i.postimg.cc/Cz2kwgq7/4f184fdf-0cae-4d6b-a028-5c82d30dd9c2.jpg"
@@ -896,4 +916,5 @@ footer p {
 
 
 </body>
+
 </html>
