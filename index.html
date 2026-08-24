@@ -25,6 +25,7 @@
     --white: #ffffff;
     --light: #f4f4f6;
     --gray: #8c92a0;
+    --green: #3b8d5a;
 }
 
 * {
@@ -48,6 +49,7 @@ a {
     color: inherit;
 }
 
+
 /* =========================
    HEADER
 ========================= */
@@ -56,35 +58,38 @@ header {
     background: var(--dark);
     color: white;
     padding: 12px 25px;
-    border-bottom: 3px solid var(--gold);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
 
-.header-inner {
-    max-width: 1200px;
-    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+
+    border-bottom: 3px solid var(--gold);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .brand {
     display: flex;
     align-items: center;
     gap: 14px;
-    flex-shrink: 0;
 }
 
 .logo-container {
     width: 58px;
     height: 58px;
+
     border-radius: 50%;
     overflow: hidden;
+
     border: 2px solid var(--gold);
     background: #111;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     flex-shrink: 0;
 }
 
@@ -97,106 +102,187 @@ header {
 .brand h1 {
     font-size: 21px;
     letter-spacing: 1px;
-    white-space: nowrap;
 }
 
 .header-right {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
-.page-link {
+.players-link {
     color: white;
     text-decoration: none;
-    font-size: 13px;
+
+    font-size: 14px;
     font-weight: bold;
-    padding: 9px 13px;
+
+    padding: 9px 14px;
+
     border: 1px solid var(--gold);
     border-radius: 6px;
+
     transition: .2s;
-    white-space: nowrap;
 }
 
-.page-link:hover {
+.players-link:hover {
     background: var(--red);
+    color: var(--gold-light);
 }
 
 .social-links {
     display: flex;
-    gap: 15px;
-    margin-left: 5px;
+    gap: 16px;
 }
 
 .social-links a {
     color: white;
     font-size: 21px;
     text-decoration: none;
+    transition: .2s;
 }
 
 .social-links a:hover {
     color: var(--gold);
 }
 
+
 /* =========================
    HERO
 ========================= */
 
 .hero {
-    min-height: 510px;
+    min-height: 620px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
-    padding: 60px 20px;
+
+    padding: 70px 20px;
 
     background:
         linear-gradient(
-            rgba(18,20,23,.82),
-            rgba(18,20,23,.92)
+            rgba(10,12,15,.68),
+            rgba(10,12,15,.90)
         ),
-        url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=80")
-        center/cover;
+        url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=2000&q=90")
+        center/cover no-repeat;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(139,30,43,.25),
+            transparent 58%
+        );
+
+    pointer-events: none;
 }
 
 .hero-content {
-    max-width: 900px;
+    position: relative;
+    z-index: 2;
+
+    max-width: 950px;
 }
 
 .hero-logo {
-    width: 135px;
-    height: 135px;
+    width: 150px;
+    height: 150px;
+
     object-fit: cover;
+
     border-radius: 50%;
     border: 3px solid var(--gold);
-    margin-bottom: 22px;
-    box-shadow: 0 10px 35px rgba(0,0,0,.45);
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 0 0 8px rgba(194,171,135,.08),
+        0 15px 45px rgba(0,0,0,.6);
 }
 
 .hero h2 {
-    font-size: clamp(42px, 8vw, 80px);
+    font-size: clamp(45px, 8vw, 82px);
+
     font-weight: 900;
-    letter-spacing: 3px;
-    line-height: 1.05;
+
+    letter-spacing: 4px;
+
+    line-height: 1;
+
     color: white;
+
+    text-shadow:
+        0 4px 20px rgba(0,0,0,.7);
 }
 
-.hero p {
-    font-size: 22px;
+.hero-subtitle {
+    margin-top: 18px;
+
     color: var(--gold-light);
-    margin: 15px 0 30px;
+
+    font-size: clamp(16px, 3vw, 24px);
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+}
+
+.hero-tagline {
+    margin-top: 12px;
+
+    color: rgba(255,255,255,.85);
+
+    font-size: 17px;
+
+    letter-spacing: 2px;
 }
 
 .hero-button {
     display: inline-block;
+
+    margin-top: 32px;
+
     background: var(--red);
+
     color: white;
-    padding: 13px 28px;
+
+    padding: 14px 30px;
+
     border-radius: 6px;
+
     text-decoration: none;
+
     font-weight: bold;
+
     border: 1px solid var(--gold);
+
+    transition: .25s;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35);
 }
+
+.hero-button:hover {
+    background: var(--red-hover);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+}
+
 
 /* =========================
    NEXT MATCH
@@ -204,28 +290,43 @@ header {
 
 .next-match {
     max-width: 950px;
-    margin: -70px auto 70px;
+
+    margin: -70px auto 75px;
+
     position: relative;
     z-index: 10;
 
     background: white;
-    border-radius: 15px;
+
+    border-radius: 16px;
+
     padding: 35px 25px;
+
     text-align: center;
 
-    box-shadow: 0 12px 35px rgba(0,0,0,.15);
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.15);
+
     border-top: 5px solid var(--red);
 }
 
 .badge {
     display: inline-block;
+
     background: var(--red);
+
     color: var(--gold-light);
+
     border: 1px solid var(--gold);
+
     padding: 6px 15px;
+
     border-radius: 30px;
+
     font-size: 13px;
+
     font-weight: bold;
+
     margin-bottom: 15px;
 }
 
@@ -233,43 +334,69 @@ header {
     margin-bottom: 25px;
 }
 
-.teams {
+
+/* MATCH TEAMS */
+
+.match-teams {
     display: flex;
+
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    font-size: 24px;
+
+    gap: 35px;
+}
+
+.match-team {
+    width: 180px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    font-size: 17px;
     font-weight: bold;
 }
 
-.team {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
 .team-logo {
-    width: 65px;
-    height: 65px;
+    width: 105px;
+    height: 105px;
+
     object-fit: contain;
+
+    margin-bottom: 12px;
+
     border-radius: 50%;
-    border: 2px solid var(--gold);
+
     background: white;
-    padding: 4px;
+
+    padding: 7px;
+
+    border: 2px solid var(--gold);
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,.12);
 }
 
-.vs {
-    color: var(--red);
-    font-size: 20px;
+.match-vs {
+    font-size: 26px;
+
     font-weight: 900;
+
+    color: var(--red);
 }
 
 .match-info {
-    margin-top: 25px;
+    margin-top: 28px;
+
     display: flex;
+
     justify-content: center;
+
     gap: 25px;
+
     flex-wrap: wrap;
+
     color: var(--gray);
 }
 
@@ -278,13 +405,16 @@ header {
     margin-right: 5px;
 }
 
+
 /* =========================
    GENERAL
 ========================= */
 
 .container {
     max-width: 1100px;
+
     margin: auto;
+
     padding: 0 20px;
 }
 
@@ -294,241 +424,296 @@ section {
 
 .section-title {
     text-align: center;
+
     font-size: 32px;
+
     text-transform: uppercase;
+
     margin-bottom: 35px;
 }
 
 .section-title::after {
     content: "";
+
     display: block;
+
     width: 55px;
     height: 4px;
+
     background: var(--red);
+
     margin: 10px auto;
 }
 
+
 /* =========================
-   MATCH SQUAD
+   SEASON STATS
 ========================= */
 
-.match-squad {
-    background: var(--dark);
-    border-radius: 16px;
-    padding: 30px 25px;
-    color: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,.18);
-}
-
-.match-squad-grid {
+.season-stats {
     display: grid;
-    grid-template-columns: minmax(0, 1.7fr) minmax(250px, .8fr);
-    gap: 30px;
-    align-items: stretch;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 12px;
 }
 
-/* BOISKO */
-
-.pitch {
-    position: relative;
-    min-height: 560px;
-    border: 2px solid rgba(255,255,255,.65);
-    border-radius: 12px;
-    overflow: hidden;
-
-    background:
-        repeating-linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 0,
-            rgba(255,255,255,.025) 10%,
-            transparent 10%,
-            transparent 20%
-        ),
-        #28552f;
-}
-
-.pitch-line {
-    position: absolute;
-    background: rgba(255,255,255,.55);
-}
-
-.pitch-half {
-    width: 100%;
-    height: 2px;
-    top: 50%;
-    left: 0;
-}
-
-.pitch-center-circle {
-    position: absolute;
-    width: 110px;
-    height: 110px;
-    border: 2px solid rgba(255,255,255,.55);
-    border-radius: 50%;
-    top: calc(50% - 55px);
-    left: calc(50% - 55px);
-}
-
-.pitch-center-dot {
-    position: absolute;
-    width: 8px;
-    height: 8px;
+.stat-card {
     background: white;
-    border-radius: 50%;
-    top: calc(50% - 4px);
-    left: calc(50% - 4px);
-}
 
-.player-position {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: 105px;
+    padding: 20px 10px;
+
     text-align: center;
+
+    border-radius: 10px;
+
+    border-top: 4px solid var(--red);
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.06);
 }
 
-.player-circle {
-    width: 54px;
-    height: 54px;
-    margin: auto;
-    border-radius: 50%;
-    background: var(--red);
-    border: 3px solid var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.stat-number {
+    font-size: 27px;
+
     font-weight: 900;
-    color: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,.35);
+
+    color: var(--red);
 }
 
-.player-label {
-    margin-top: 7px;
-    font-size: 12px;
-    font-weight: bold;
-    color: white;
-    background: rgba(0,0,0,.55);
-    border-radius: 5px;
-    padding: 3px 5px;
-}
-
-/* POZYCJE */
-
-.gk {
-    left: 50%;
-    bottom: 7%;
-}
-
-.def1 {
-    left: 22%;
-    bottom: 28%;
-}
-
-.def2 {
-    left: 50%;
-    bottom: 34%;
-}
-
-.def3 {
-    left: 78%;
-    bottom: 28%;
-}
-
-.mid1 {
-    left: 25%;
-    bottom: 57%;
-}
-
-.mid2 {
-    left: 75%;
-    bottom: 57%;
-}
-
-/* REZERWOWI */
-
-.substitutes {
-    background: var(--dark-card);
-    border: 1px solid rgba(194,171,135,.35);
-    border-radius: 12px;
-    padding: 25px 20px;
-}
-
-.substitutes h3 {
-    color: var(--gold-light);
-    text-align: center;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.substitute-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.substitute {
-    min-height: 48px;
-    border: 1px dashed rgba(194,171,135,.4);
-    border-radius: 7px;
-    display: flex;
-    align-items: center;
-    padding: 8px 12px;
+.stat-label {
     color: var(--gray);
+
+    font-size: 11px;
+
+    margin-top: 4px;
+
+    text-transform: uppercase;
 }
 
-.sub-number {
-    width: 32px;
-    color: var(--gold);
-    font-weight: bold;
-}
 
 /* =========================
-   QUICK LINKS
+   LAST MATCHES
 ========================= */
 
-.quick-links {
+.results {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 800px;
+
+    gap: 12px;
+
+    max-width: 850px;
+
     margin: auto;
 }
 
-.quick-card {
-    background: var(--dark);
-    color: white;
-    padding: 30px 20px;
-    border-radius: 12px;
-    text-align: center;
-    text-decoration: none;
-    border: 1px solid var(--gold);
-    transition: .2s;
+.result-card {
+    background: white;
+
+    border-radius: 10px;
+
+    padding: 16px 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        90px 1fr 120px;
+
+    align-items: center;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.06);
+
+    border-left: 4px solid var(--gray);
 }
 
-.quick-card:hover {
-    background: var(--red);
-    transform: translateY(-4px);
+.result-card.win {
+    border-left-color: var(--green);
 }
 
-.quick-card i {
-    font-size: 35px;
-    color: var(--gold-light);
-    margin-bottom: 12px;
+.result-card.draw {
+    border-left-color: var(--gold);
 }
 
-.quick-card h3 {
-    font-size: 20px;
-    margin-bottom: 5px;
+.result-card.loss {
+    border-left-color: var(--red);
 }
 
-.quick-card p {
+.result-date {
     color: var(--gray);
     font-size: 13px;
 }
 
-.quick-card:hover p {
+.result-teams {
+    font-weight: bold;
+}
+
+.result-score {
+    text-align: right;
+
+    font-size: 21px;
+
+    font-weight: 900;
+}
+
+.result-status {
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    margin-left: 8px;
+}
+
+
+/* =========================
+   LEAGUE TABLE
+========================= */
+
+.league-table-wrapper {
+    background: var(--dark-card);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.18);
+
+    border: 1px solid rgba(194,171,135,.18);
+}
+
+.league-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
     color: white;
 }
+
+.league-table thead {
+    background: var(--dark);
+}
+
+.league-table th {
+    padding: 17px 12px;
+
+    text-align: left;
+
+    color: var(--gold-light);
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.league-table th:first-child,
+.league-table th:nth-child(3),
+.league-table th:nth-child(4),
+.league-table th:nth-child(5),
+.league-table th:nth-child(6),
+.league-table th:nth-child(7),
+.league-table td:first-child,
+.league-table td:nth-child(3),
+.league-table td:nth-child(4),
+.league-table td:nth-child(5),
+.league-table td:nth-child(6),
+.league-table td:nth-child(7) {
+    text-align: center;
+}
+
+.league-table td {
+    padding: 13px 12px;
+
+    border-top:
+        1px solid rgba(255,255,255,.06);
+
+    font-size: 14px;
+}
+
+.league-table tbody tr:hover {
+    background: rgba(255,255,255,.05);
+}
+
+.league-table .promotion {
+    background: rgba(194,171,135,.12);
+
+    border-left:
+        4px solid var(--gold);
+}
+
+.league-table .blanquirojos-row {
+    background:
+        rgba(139,30,43,.28);
+
+    font-weight: bold;
+
+    border-left:
+        4px solid var(--gold);
+}
+
+.league-table .blanquirojos-row td {
+    color: var(--gold-light);
+}
+
+.league-table .relegation {
+    background:
+        rgba(139,30,43,.12);
+
+    border-left:
+        4px solid var(--red);
+}
+
+.league-table td:first-child {
+    font-weight: bold;
+
+    color: var(--gold-light);
+
+    width: 45px;
+}
+
+.table-legend {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    padding: 20px;
+
+    color: var(--gray);
+
+    font-size: 13px;
+}
+
+.table-legend span {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.legend-box {
+    width: 13px;
+    height: 13px;
+
+    border-radius: 3px;
+
+    display: inline-block;
+}
+
+.promotion-color {
+    background: var(--gold);
+}
+
+.relegation-color {
+    background: var(--red);
+}
+
 
 /* =========================
    SOCIAL
@@ -540,27 +725,44 @@ section {
 
 .social-buttons {
     display: flex;
+
     justify-content: center;
+
     gap: 15px;
+
     flex-wrap: wrap;
 }
 
 .social-button {
     display: inline-flex;
+
     align-items: center;
+
     gap: 9px;
+
     padding: 13px 22px;
+
     border-radius: 7px;
+
     background: var(--dark);
+
     color: white;
+
     text-decoration: none;
+
     font-weight: bold;
+
     border: 1px solid var(--gold);
+
+    transition: .2s;
 }
 
 .social-button:hover {
     background: var(--red);
+
+    color: var(--gold-light);
 }
+
 
 /* =========================
    SPONSORS
@@ -568,6 +770,7 @@ section {
 
 .sponsors {
     text-align: center;
+
     margin-top: 30px;
 }
 
@@ -575,58 +778,97 @@ section {
 .media-title,
 .partner-title {
     color: var(--gray);
+
     font-size: 13px;
+
     text-transform: uppercase;
+
     letter-spacing: 2px;
+
     margin-bottom: 20px;
 }
 
 .main-sponsor {
     display: flex;
+
     justify-content: center;
+
+    align-items: center;
+
     margin: 10px auto 50px;
 }
 
 .main-sponsor img {
     max-width: 340px;
+
     max-height: 130px;
+
     object-fit: contain;
+
     background: white;
+
     padding: 15px 25px;
+
     border-radius: 12px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.10);
 }
 
 .media-sponsor {
     display: flex;
+
     justify-content: center;
+
     margin-bottom: 45px;
 }
 
 .media-sponsor img {
     max-width: 250px;
+
     max-height: 80px;
+
     object-fit: contain;
+
     background: white;
+
     padding: 10px 18px;
+
     border-radius: 8px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.06);
 }
 
 .partner-logos {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     gap: 25px;
+
     flex-wrap: wrap;
 }
 
 .partner-logos img {
     max-width: 160px;
+
     max-height: 70px;
+
     object-fit: contain;
+
     background: white;
+
     padding: 10px 15px;
+
     border-radius: 8px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.06);
 }
+
 
 /* =========================
    FOOTER
@@ -634,9 +876,13 @@ section {
 
 footer {
     background: var(--dark);
+
     color: white;
+
     text-align: center;
+
     padding: 35px 20px;
+
     border-top: 4px solid var(--gold);
 }
 
@@ -646,137 +892,178 @@ footer strong {
 
 footer p {
     color: var(--gold-light);
+
     font-size: 14px;
+
     margin-top: 5px;
 }
+
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
-    header {
-        padding: 9px 12px;
+    .season-stats {
+        grid-template-columns:
+            repeat(4, 1fr);
     }
 
-    .header-inner {
-        flex-wrap: wrap;
-        gap: 8px;
+    .result-card {
+        grid-template-columns:
+            70px 1fr 80px;
+    }
+
+    .league-table {
+        min-width: 760px;
+    }
+
+    .league-table-wrapper {
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 10px 14px;
     }
 
     .brand {
-        gap: 8px;
+        gap: 9px;
     }
 
     .brand h1 {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .logo-container {
-        width: 43px;
-        height: 43px;
+        width: 45px;
+        height: 45px;
     }
 
     .header-right {
-        width: 100%;
-        justify-content: space-between;
-        gap: 6px;
+        gap: 8px;
     }
 
-    .page-link {
-        padding: 7px 11px;
-        font-size: 11px;
-        flex: 1;
-        text-align: center;
+    .players-link {
+        padding: 7px 8px;
+
+        font-size: 10px;
     }
 
     .social-links {
-        margin-left: 0;
-        gap: 15px;
+        gap: 9px;
     }
 
     .social-links a {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .hero {
-        min-height: 440px;
-        padding: 45px 15px;
+        min-height: 540px;
+
+        padding: 50px 15px;
     }
 
     .hero-logo {
-        width: 105px;
-        height: 105px;
+        width: 115px;
+        height: 115px;
     }
 
     .hero h2 {
-        font-size: 38px;
+        font-size: 39px;
+
         letter-spacing: 1px;
     }
 
-    .hero p {
-        font-size: 18px;
+    .hero-subtitle {
+        font-size: 14px;
+
+        letter-spacing: 3px;
+    }
+
+    .hero-tagline {
+        font-size: 14px;
+
+        letter-spacing: 1px;
+    }
+
+    .hero-button {
+        padding: 12px 24px;
+
+        margin-top: 26px;
     }
 
     .next-match {
         margin-left: 15px;
         margin-right: 15px;
-        padding: 30px 18px;
+
+        padding: 30px 15px;
     }
 
-    .teams {
-        flex-direction: column;
-        gap: 12px;
-        font-size: 19px;
+    .match-teams {
+        gap: 10px;
     }
 
-    .team {
-        flex-direction: column;
-        gap: 6px;
+    .match-team {
+        width: 125px;
+
+        font-size: 13px;
     }
 
     .team-logo {
-        width: 60px;
-        height: 60px;
-    }
-
-    .vs {
-        font-size: 17px;
-    }
-
-    .match-squad {
-        padding: 15px;
-    }
-
-    .match-squad-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .pitch {
-        min-height: 500px;
-    }
-
-    .player-position {
         width: 80px;
+        height: 80px;
     }
 
-    .player-circle {
-        width: 45px;
-        height: 45px;
-        font-size: 12px;
+    .match-vs {
+        font-size: 20px;
     }
 
-    .player-label {
-        font-size: 10px;
-    }
+    .match-info {
+        gap: 12px;
 
-    .quick-links {
-        grid-template-columns: 1fr;
+        font-size: 13px;
     }
 
     .section-title {
         font-size: 25px;
+    }
+
+    .season-stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .result-card {
+        grid-template-columns:
+            1fr 80px;
+
+        gap: 8px;
+    }
+
+    .result-date {
+        grid-column: 1 / -1;
+    }
+
+    .result-score {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .result-teams {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .table-legend {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 10px;
     }
 
     .main-sponsor img {
@@ -793,14 +1080,15 @@ footer p {
         max-width: 135px;
         max-height: 60px;
     }
-
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <!-- =========================
      HEADER
@@ -808,53 +1096,64 @@ footer p {
 
 <header>
 
-    <div class="header-inner">
+    <div class="brand">
 
-        <div class="brand">
+        <div class="logo-container">
 
-            <div class="logo-container">
-
-                <img
-                    src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
-                    alt="Blanquirojos F.C. Logo">
-
-            </div>
-
-            <h1>BLANQUIROJOS F.C.</h1>
+            <img
+                src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
+                alt="Blanquirojos F.C. Logo">
 
         </div>
 
-        <div class="header-right">
+        <h1>
+            BLANQUIROJOS F.C.
+        </h1>
 
-            <a href="zawodnicy.html" class="page-link">
-                ZAWODNICY
+    </div>
+
+
+    <div class="header-right">
+
+        <a
+            href="zawodnicy.html"
+            class="players-link">
+
+            ZAWODNICY
+
+        </a>
+
+
+        <div class="social-links">
+
+            <a
+                href="https://www.instagram.com/blanquirojos_costablanca/"
+                target="_blank"
+                aria-label="Instagram">
+
+                <i class="fab fa-instagram"></i>
+
             </a>
 
-            <a href="tabela.html" class="page-link">
-                TABELA
+
+            <a
+                href="https://www.youtube.com/@blanquirojos"
+                target="_blank"
+                aria-label="YouTube">
+
+                <i class="fab fa-youtube"></i>
+
             </a>
 
-            <div class="social-links">
 
-                <a href="https://www.instagram.com/blanquirojos_costablanca/"
-                   target="_blank"
-                   aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
+            <a
+                href="https://www.tiktok.com/@blanquirojos_costablanca"
+                target="_blank"
+                aria-label="TikTok">
 
-                <a href="https://www.youtube.com/@blanquirojos"
-                   target="_blank"
-                   aria-label="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
+                <i class="fab fa-tiktok"></i>
 
-                <a href="https://www.tiktok.com/@blanquirojos_costablanca"
-                   target="_blank"
-                   aria-label="TikTok">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-
-            </div>
+            </a>
 
         </div>
 
@@ -880,12 +1179,22 @@ footer p {
             BLANQUIROJOS F.C.
         </h2>
 
-        <p>
-            Más que un equipo
-        </p>
+        <div class="hero-subtitle">
+            COSTA BLANCA • 2026/27
+        </div>
 
-        <a href="#mecz" class="hero-button">
+        <div class="hero-tagline">
+            JEDEN KLUB • JEDNA DRUŻYNA • JEDEN CEL
+        </div>
+
+        <a
+            href="#mecz"
+            class="hero-button">
+
+            <i class="fas fa-futbol"></i>
+
             NAJBLIŻSZY MECZ
+
         </a>
 
     </div>
@@ -897,7 +1206,9 @@ footer p {
      NEXT MATCH
 ========================= -->
 
-<div class="next-match" id="mecz">
+<div
+    class="next-match"
+    id="mecz">
 
     <span class="badge">
         LIGA FRATELO • TERCERA DIVISIÓN
@@ -907,9 +1218,11 @@ footer p {
         NAJBLIŻSZY MECZ
     </h2>
 
-    <div class="teams">
 
-        <div class="team">
+    <div class="match-teams">
+
+
+        <div class="match-team">
 
             <img
                 class="team-logo"
@@ -922,11 +1235,13 @@ footer p {
 
         </div>
 
-        <span class="vs">
-            VS
-        </span>
 
-        <div class="team">
+        <div class="match-vs">
+            VS
+        </div>
+
+
+        <div class="match-team">
 
             <img
                 class="team-logo"
@@ -940,6 +1255,7 @@ footer p {
         </div>
 
     </div>
+
 
     <div class="match-info">
 
@@ -967,181 +1283,51 @@ footer p {
 
 
 <!-- =========================
-     SKŁAD NA MECZ
+     STATYSTYKI SEZONU
 ========================= -->
 
 <section>
 
     <h2 class="section-title">
-        SKŁAD NA NAJBLIŻSZY MECZ
+        SEZON 2026/27
     </h2>
 
-    <div class="match-squad">
 
-        <div class="match-squad-grid">
+    <div class="season-stats">
 
-            <!-- BOISKO -->
+        <div class="stat-card">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Mecze</div>
+        </div>
 
-            <div class="pitch">
+        <div class="stat-card">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Zwycięstwa</div>
+        </div>
 
-                <div class="pitch-line pitch-half"></div>
+        <div class="stat-card">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Remisy</div>
+        </div>
 
-                <div class="pitch-center-circle"></div>
+        <div class="stat-card">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Porażki</div>
+        </div>
 
-                <div class="pitch-center-dot"></div>
+        <div class="stat-card">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Bramki</div>
+        </div>
 
+        <div class="stat-card">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Stracone</div>
+        </div>
 
-                <!-- BRAMKARZ -->
-
-                <div class="player-position gk">
-
-                    <div class="player-circle">
-                        BR
-                    </div>
-
-                    <div class="player-label">
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                </div>
-
-
-                <!-- OBRONA -->
-
-                <div class="player-position def1">
-
-                    <div class="player-circle">
-                        2
-                    </div>
-
-                    <div class="player-label">
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                </div>
-
-
-                <div class="player-position def2">
-
-                    <div class="player-circle">
-                        3
-                    </div>
-
-                    <div class="player-label">
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                </div>
-
-
-                <div class="player-position def3">
-
-                    <div class="player-circle">
-                        4
-                    </div>
-
-                    <div class="player-label">
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                </div>
-
-
-                <!-- POMOC -->
-
-                <div class="player-position mid1">
-
-                    <div class="player-circle">
-                        5
-                    </div>
-
-                    <div class="player-label">
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                </div>
-
-
-                <div class="player-position mid2">
-
-                    <div class="player-circle">
-                        6
-                    </div>
-
-                    <div class="player-label">
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                </div>
-
-
-                <!-- NAPASTNIK -->
-
-                <div class="player-position"
-                     style="left:50%; top:18%;">
-
-                    <div class="player-circle">
-                        7
-                    </div>
-
-                    <div class="player-label">
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- REZERWOWI -->
-
-            <div class="substitutes">
-
-                <h3>
-                    REZERWOWI
-                </h3>
-
-                <div class="substitute-list">
-
-                    <div class="substitute">
-                        <span class="sub-number">1.</span>
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                    <div class="substitute">
-                        <span class="sub-number">2.</span>
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                    <div class="substitute">
-                        <span class="sub-number">3.</span>
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                    <div class="substitute">
-                        <span class="sub-number">4.</span>
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                    <div class="substitute">
-                        <span class="sub-number">5.</span>
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                    <div class="substitute">
-                        <span class="sub-number">6.</span>
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                    <div class="substitute">
-                        <span class="sub-number">7.</span>
-                        DO UZUPEŁNIENIA
-                    </div>
-
-                </div>
-
-            </div>
-
+        <div class="stat-card">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Punkty</div>
         </div>
 
     </div>
@@ -1150,45 +1336,317 @@ footer p {
 
 
 <!-- =========================
-     PODSTRONY
+     OSTATNIE MECZE
 ========================= -->
 
 <section>
 
     <h2 class="section-title">
-        BLANQUIROJOS F.C.
+        OSTATNIE MECZE
     </h2>
 
-    <div class="quick-links">
 
-        <a href="zawodnicy.html" class="quick-card">
-
-            <i class="fas fa-users"></i>
-
-            <h3>
-                ZAWODNICY
-            </h3>
-
-            <p>
-                Kadra zespołu i indywidualne statystyki
-            </p>
-
-        </a>
+    <div class="results">
 
 
-        <a href="tabela.html" class="quick-card">
+        <div class="result-card win">
 
-            <i class="fas fa-table"></i>
+            <div class="result-date">
+                —
+            </div>
 
-            <h3>
-                TABELA LIGOWA
-            </h3>
+            <div class="result-teams">
+                BLANQUIROJOS F.C. — —
+            </div>
 
-            <p>
-                Tabela, wyniki i statystyki ligi
-            </p>
+            <div class="result-score">
+                —
+            </div>
 
-        </a>
+        </div>
+
+
+        <div class="result-card draw">
+
+            <div class="result-date">
+                —
+            </div>
+
+            <div class="result-teams">
+                BLANQUIROJOS F.C. — —
+            </div>
+
+            <div class="result-score">
+                —
+            </div>
+
+        </div>
+
+
+        <div class="result-card loss">
+
+            <div class="result-date">
+                —
+            </div>
+
+            <div class="result-teams">
+                BLANQUIROJOS F.C. — —
+            </div>
+
+            <div class="result-score">
+                —
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TABELA LIGOWA
+========================= -->
+
+<section id="tabela">
+
+    <h2 class="section-title">
+        TABELA LIGOWA
+    </h2>
+
+
+    <div class="league-table-wrapper">
+
+        <table class="league-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>#</th>
+                    <th>DRUŻYNA</th>
+                    <th>M</th>
+                    <th>W</th>
+                    <th>R</th>
+                    <th>P</th>
+                    <th>PKT</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+                <tr class="promotion">
+
+                    <td>1</td>
+                    <td>ALONE FC</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr class="promotion">
+
+                    <td>2</td>
+                    <td>ASESORIA ANTOLINOS</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr class="blanquirojos-row">
+
+                    <td>3</td>
+                    <td>BLANQUIROJOS</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>4</td>
+                    <td>BOOKING PUB</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>5</td>
+                    <td>CERRAJERIA FEMA</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>6</td>
+                    <td>COSTA UNITED</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>7</td>
+                    <td>GOLD TEAM</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>8</td>
+                    <td>LA CUEVA</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>9</td>
+                    <td>LEONES DEL PARQUE</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>10</td>
+                    <td>LIONS DE COSTA</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr class="relegation">
+
+                    <td>11</td>
+                    <td>NEW DAYA F7</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr class="relegation">
+
+                    <td>12</td>
+                    <td>REAL TORREVIEJA</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr class="relegation">
+
+                    <td>13</td>
+                    <td>RESTAURANTE MARTIN</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+                <tr class="relegation">
+
+                    <td>14</td>
+                    <td>TALLERES ABEL</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+
+                </tr>
+
+
+            </tbody>
+
+        </table>
+
+
+        <div class="table-legend">
+
+            <span>
+
+                <span class="legend-box promotion-color"></span>
+
+                Awans do 2ª División
+
+            </span>
+
+
+            <span>
+
+                <span class="legend-box relegation-color"></span>
+
+                Spadek do 4ª División
+
+            </span>
+
+        </div>
 
     </div>
 
@@ -1205,34 +1663,45 @@ footer p {
         BLANQUIROJOS W SIECI
     </h2>
 
+
     <div class="social-buttons">
 
-        <a class="social-button"
-           href="https://www.instagram.com/blanquirojos_costablanca/"
-           target="_blank">
+
+        <a
+            class="social-button"
+            href="https://www.instagram.com/blanquirojos_costablanca/"
+            target="_blank">
 
             <i class="fab fa-instagram"></i>
+
             Instagram
 
         </a>
 
-        <a class="social-button"
-           href="https://www.youtube.com/@blanquirojos"
-           target="_blank">
+
+        <a
+            class="social-button"
+            href="https://www.youtube.com/@blanquirojos"
+            target="_blank">
 
             <i class="fab fa-youtube"></i>
+
             YouTube
 
         </a>
 
-        <a class="social-button"
-           href="https://www.tiktok.com/@blanquirojos_costablanca"
-           target="_blank">
+
+        <a
+            class="social-button"
+            href="https://www.tiktok.com/@blanquirojos_costablanca"
+            target="_blank">
 
             <i class="fab fa-tiktok"></i>
+
             TikTok
 
         </a>
+
 
     </div>
 
@@ -1245,9 +1714,11 @@ footer p {
 
 <section class="sponsors">
 
+
     <div class="sponsors-title">
         Sponsor główny
     </div>
+
 
     <div class="main-sponsor">
 
@@ -1262,6 +1733,7 @@ footer p {
         Patron medialny
     </div>
 
+
     <div class="media-sponsor">
 
         <img
@@ -1275,19 +1747,25 @@ footer p {
         Partnerzy
     </div>
 
+
     <div class="partner-logos">
+
 
         <img
             src="https://i.postimg.cc/vDpm0ZF6/logotyp-Kids-Zone.png"
             alt="KidsZone">
 
+
         <img
             src="https://i.postimg.cc/Cz2kwgq7/4f184fdf-0cae-4d6b-a028-5c82d30dd9c2.jpg"
             alt="Partner Blanquirojos F.C.">
 
+
     </div>
 
+
 </section>
+
 
 </div>
 
@@ -1302,15 +1780,18 @@ footer p {
         BLANQUIROJOS F.C.
     </strong>
 
+
     <p>
         Costa Blanca • España • Temporada 2026/27
     </p>
+
 
     <p>
         © 2026 Blanquirojos F.C.
     </p>
 
 </footer>
+
 
 </body>
 </html>
