@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blanquirojos F.C.</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin-top: 8px;
+            color: #ccc;
+        }
+
+        nav {
+            background: #c8102e;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 14px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(#0008, #0008),
+                        url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=80")
+                        center/cover;
+            color: white;
+            padding: 30px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 30px;
+        }
+
+        .match {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px #0001;
+        }
+
+        .match h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .match p {
+            margin: 8px;
+            color: #555;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .hero h2 {
+                font-size: 34px;
+            }
+
+            nav {
+                gap: 12px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>BLANQUIROJOS F.C.</h1>
+    <p>Costa Blanca · Temporada 2026/27</p>
+</header>
+
+<nav>
+    <a href="#">STRONA</a>
+    <a href="#mecz">MECZE</a>
+    <a href="#druzyna">DRUŻYNA</a>
+    <a href="#kontakt">KONTAKT</a>
+</nav>
+
+<div class="hero">
+    <div>
+        <h2>BLANQUIROJOS F.C.</h2>
+        <p>Más que un equipo</p>
+    </div>
+</div>
+
+<section id="mecz">
+    <h2>NAJBLIŻSZY MECZ</h2>
+
+    <div class="match">
+        <h3>BLANQUIROJOS F.C. vs RYWAL</h3>
+        <p>📅 Data meczu</p>
+        <p>⏰ Godzina</p>
+        <p>📍 Torrevieja</p>
+    </div>
+</section>
+
+<section id="druzyna">
+    <h2>DRUŻYNA</h2>
+
+    <div class="match">
+        <h3>BLANQUIROJOS F.C.</h3>
+        <p>Sezon 2026/27</p>
+        <p>Skład drużyny już wkrótce</p>
+    </div>
+</section>
+
+<section id="kontakt">
+    <h2>KONTAKT</h2>
+
+    <div class="match">
+        <p>Blanquirojos F.C.</p>
+        <p>Costa Blanca, España</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Blanquirojos F.C.</p>
+</footer>
+
+</body>
+</html>
