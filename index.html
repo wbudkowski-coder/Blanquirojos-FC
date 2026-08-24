@@ -56,9 +56,10 @@ a {
 header {
     background: var(--dark);
     color: white;
-    padding: 12px 25px;
+    padding: 14px 25px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     border-bottom: 3px solid var(--gold);
     position: sticky;
@@ -69,7 +70,9 @@ header {
 .brand {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 14px;
+    margin-bottom: 12px;
 }
 
 .logo-container {
@@ -103,23 +106,24 @@ header {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: center;
+    width: 100%;
 }
 
 .nav-buttons {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: nowrap;
 }
 
 .nav-button {
     color: white;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
-    padding: 8px 13px;
+    padding: 8px 11px;
     border: 1px solid var(--gold);
     border-radius: 6px;
     transition: .2s;
@@ -129,28 +133,6 @@ header {
 .nav-button:hover {
     background: var(--red);
     color: var(--gold-light);
-}
-
-/* SOCIALE */
-
-.social-links {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 2px;
-}
-
-.social-links a {
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-    transition: .2s;
-}
-
-.social-links a:hover {
-    color: var(--gold);
 }
 
 /* =========================
@@ -196,10 +178,54 @@ header {
     color: white;
 }
 
-.hero p {
-    font-size: 22px;
-    color: var(--gold-light);
-    margin-top: 15px;
+/* =========================
+   OPIS DRUŻYNY
+========================= */
+
+.club-description {
+    max-width: 900px;
+    margin: -45px auto 70px;
+    position: relative;
+    z-index: 5;
+    padding: 0 20px;
+}
+
+.club-description-inner {
+    background: white;
+    border-radius: 15px;
+    padding: 35px 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    border-top: 5px solid var(--red);
+}
+
+.club-description h2 {
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.club-description h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: var(--red);
+    margin: 9px auto 20px;
+}
+
+.club-description p {
+    color: #444;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.club-description p:last-child {
+    margin-bottom: 0;
+}
+
+.club-description strong {
+    color: var(--red);
 }
 
 /* =========================
@@ -208,7 +234,7 @@ header {
 
 .next-match {
     max-width: 850px;
-    margin: -70px auto 70px;
+    margin: 0 auto 70px;
     position: relative;
     z-index: 10;
 
@@ -452,11 +478,12 @@ footer p {
 @media (max-width: 700px) {
 
     header {
-        padding: 10px 14px;
+        padding: 10px 10px;
     }
 
     .brand {
         gap: 9px;
+        margin-bottom: 10px;
     }
 
     .brand h1 {
@@ -468,28 +495,14 @@ footer p {
         height: 45px;
     }
 
-    .header-right {
-        gap: 6px;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
     .nav-buttons {
-        gap: 6px;
+        gap: 4px;
+        width: 100%;
     }
 
     .nav-button {
-        padding: 7px 8px;
-        font-size: 10px;
-    }
-
-    .social-links {
-        gap: 12px;
-        margin-top: 1px;
-    }
-
-    .social-links a {
-        font-size: 17px;
+        padding: 6px 7px;
+        font-size: 9px;
     }
 
     .hero {
@@ -507,8 +520,21 @@ footer p {
         letter-spacing: 1px;
     }
 
-    .hero p {
-        font-size: 18px;
+    .club-description {
+        margin-top: -35px;
+        padding: 0 15px;
+    }
+
+    .club-description-inner {
+        padding: 28px 20px;
+    }
+
+    .club-description h2 {
+        font-size: 24px;
+    }
+
+    .club-description p {
+        font-size: 14px;
     }
 
     .next-match {
@@ -558,6 +584,7 @@ footer p {
         max-width: 135px;
         max-height: 60px;
     }
+
 }
 
 </style>
@@ -584,14 +611,14 @@ footer p {
 
         </div>
 
-        <h1>BLANQUIROJOS F.C.</h1>
+        <h1>
+            BLANQUIROJOS F.C.
+        </h1>
 
     </div>
 
 
     <div class="header-right">
-
-        <!-- ZAKŁADKI -->
 
         <div class="nav-buttons">
 
@@ -603,6 +630,7 @@ footer p {
 
             </a>
 
+
             <a
                 href="zawodnicy.html"
                 class="nav-button">
@@ -611,19 +639,13 @@ footer p {
 
             </a>
 
-        </div>
-
-
-        <!-- SOCIALE W DRUGIEJ LINII -->
-
-        <div class="social-links">
 
             <a
                 href="https://www.instagram.com/blanquirojos_costablanca/"
                 target="_blank"
-                aria-label="Instagram">
+                class="nav-button">
 
-                <i class="fab fa-instagram"></i>
+                INSTAGRAM
 
             </a>
 
@@ -631,9 +653,9 @@ footer p {
             <a
                 href="https://www.youtube.com/@blanquirojos"
                 target="_blank"
-                aria-label="YouTube">
+                class="nav-button">
 
-                <i class="fab fa-youtube"></i>
+                YOUTUBE
 
             </a>
 
@@ -641,9 +663,9 @@ footer p {
             <a
                 href="https://www.tiktok.com/@blanquirojos_costablanca"
                 target="_blank"
-                aria-label="TikTok">
+                class="nav-button">
 
-                <i class="fab fa-tiktok"></i>
+                TIKTOK
 
             </a>
 
@@ -671,8 +693,33 @@ footer p {
             BLANQUIROJOS F.C.
         </h2>
 
+    </div>
+
+</section>
+
+
+<!-- =========================
+     OPIS DRUŻYNY
+========================= -->
+
+<section class="club-description">
+
+    <div class="club-description-inner">
+
+        <h2>
+            NASZA DRUŻYNA
+        </h2>
+
         <p>
-            Más que un equipo
+            <strong>BLANQUIROJOS F.C.</strong> to polski klub piłkarski
+            działający na Costa Blanca. Tworzymy drużynę opartą na sportowej
+            rywalizacji, zaangażowaniu i wspólnej pasji do piłki nożnej.
+        </p>
+
+        <p>
+            <strong>Nasz cel:</strong> rozwijać drużynę, rywalizować na
+            najwyższym możliwym poziomie i budować silną społeczność
+            Blanquirojos F.C. zarówno na boisku, jak i poza nim.
         </p>
 
     </div>
@@ -830,12 +877,8 @@ footer p {
 <section class="sponsors">
 
 
-    <!-- SPONSOR GŁÓWNY -->
-
     <div class="sponsors-title">
-
         Sponsor główny
-
     </div>
 
 
@@ -848,12 +891,8 @@ footer p {
     </div>
 
 
-    <!-- PATRON MEDIALNY -->
-
     <div class="media-title">
-
         Patron medialny
-
     </div>
 
 
@@ -866,12 +905,8 @@ footer p {
     </div>
 
 
-    <!-- PARTNERZY -->
-
     <div class="partner-title">
-
         Partnerzy
-
     </div>
 
 
