@@ -6,20 +6,21 @@
     <title>Zapowiedź Meczu - Blanquirojos F.C. vs Lions De Costa</title>
     <style>
         :root {
-            --bg-dark: #0b0e14;
-            --card-bg: rgba(18, 22, 31, 0.85);
+            --bg-dark: #0a0d14;
+            --card-bg: rgba(15, 23, 42, 0.9);
+            --gold-accent: #d97706;
+            --gold-glow: rgba(217, 119, 6, 0.35);
             --red-accent: #dc2626;
-            --red-glow: rgba(220, 38, 38, 0.4);
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: #262c3a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
@@ -31,42 +32,41 @@
             min-height: 100vh;
             padding: 20px;
             background-image: 
-                radial-gradient(circle at 20% 20%, rgba(220, 38, 38, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(220, 38, 38, 0.1) 0%, transparent 40%);
+                radial-gradient(circle at 50% 10%, rgba(217, 119, 6, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 90%, rgba(220, 38, 38, 0.1) 0%, transparent 50%);
         }
 
         .match-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-top: 4px solid var(--red-accent);
-            border-radius: 16px;
+            border-top: 4px solid var(--gold-accent);
+            border-radius: 20px;
             width: 100%;
-            max-width: 550px;
-            padding: 32px 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--red-glow);
-            backdrop-filter: blur(10px);
+            max-width: 520px;
+            padding: 35px 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px var(--gold-glow);
+            backdrop-filter: blur(12px);
             text-align: center;
         }
 
         .header-tag {
             display: inline-block;
-            background: linear-gradient(90deg, #b91c1c, var(--red-accent));
+            background: linear-gradient(90deg, var(--gold-accent), var(--red-accent));
             color: #ffffff;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            padding: 6px 16px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            padding: 6px 18px;
             border-radius: 20px;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .teams-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 28px;
-            padding: 0 10px;
+            margin-bottom: 25px;
         }
 
         .team {
@@ -76,42 +76,56 @@
             align-items: center;
         }
 
+        .logo-box {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-home .logo-box {
+            border-color: var(--red-accent);
+        }
+
+        .team-away .logo-box {
+            border-color: var(--gold-accent);
+        }
+
         .team-name {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-top: 8px;
             line-height: 1.2;
         }
 
-        .team-home {
-            color: #ffffff;
-        }
-
-        .team-away {
-            color: #e5e7eb;
-        }
-
         .vs-badge {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 900;
             font-style: italic;
-            color: var(--red-accent);
-            padding: 0 15px;
-            text-shadow: 0 0 10px var(--red-glow);
+            background: linear-gradient(180deg, #ffffff, var(--gold-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 0 10px;
         }
 
         .divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--border-color), transparent);
-            margin: 20px 0;
+            margin: 24px 0;
         }
 
         .description {
             font-size: 0.95rem;
             color: var(--text-muted);
-            line-height: 1.5;
+            line-height: 1.6;
             margin-bottom: 24px;
         }
 
@@ -121,9 +135,9 @@
             flex-direction: column;
             gap: 12px;
             text-align: left;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 16px 20px;
-            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 18px;
+            border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -136,7 +150,6 @@
 
         .details-label {
             color: var(--text-muted);
-            font-weight: 500;
         }
 
         .details-value {
@@ -148,16 +161,9 @@
             margin-top: 28px;
             font-size: 1.1rem;
             font-weight: 800;
-            color: var(--red-accent);
+            color: var(--gold-accent);
             letter-spacing: 1px;
             text-transform: uppercase;
-        }
-
-        .hashtags {
-            margin-top: 16px;
-            font-size: 0.8rem;
-            color: #6b7280;
-            line-height: 1.4;
         }
     </style>
 </head>
@@ -167,12 +173,16 @@
         <span class="header-tag">Pre-Match Preview</span>
         
         <div class="teams-container">
-            <div class="team">
-                <div class="team-name team-home">Blanquirojos<br>F.C.</div>
+            <div class="team team-home">
+                <div class="logo-box">🦅</div>
+                <div class="team-name">Blanquirojos<br>F.C.</div>
             </div>
+            
             <div class="vs-badge">VS</div>
-            <div class="team">
-                <div class="team-name team-away">Lions De<br>Costa</div>
+            
+            <div class="team team-away">
+                <div class="logo-box">🦁</div>
+                <div class="team-name">Lions De<br>Costa</div>
             </div>
         </div>
 
@@ -202,11 +212,7 @@
         </ul>
 
         <div class="footer-callout">
-            🔴⚪ DO BOJU BLANQUIROJOS! 🔴⚪
-        </div>
-
-        <div class="hashtags">
-            #BlanquirojosFC #LionsDeCosta #3Division #Apertura #Jornada1 #Matchday
+            🔥 DO BOJU BLANQUIROJOS! 🔥
         </div>
     </div>
 
