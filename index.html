@@ -3,533 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blanquirojos F.C. | Costa Blanca</title>
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <title>Zapowiedź Meczu - Blanquirojos F.C. vs Lions De Costa</title>
     <style>
         :root {
-            --red: #d71920;
-            --dark: #111111;
-            --white: #ffffff;
-            --light: #f5f5f5;
-            --gray: #777;
+            --bg-dark: #0b0e14;
+            --card-bg: rgba(18, 22, 31, 0.85);
+            --red-accent: #dc2626;
+            --red-glow: rgba(220, 38, 38, 0.4);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #262c3a;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(220, 38, 38, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(220, 38, 38, 0.1) 0%, transparent 40%);
         }
 
-        /* HEADER */
+        .match-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--red-accent);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 550px;
+            padding: 32px 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--red-glow);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
 
-        header {
-            background: var(--dark);
-            color: white;
-            padding: 18px 25px;
+        .header-tag {
+            display: inline-block;
+            background: linear-gradient(90deg, #b91c1c, var(--red-accent));
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .teams-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 4px solid var(--red);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            margin-bottom: 28px;
+            padding: 0 10px;
         }
 
-        .brand {
+        .team {
+            flex: 1;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 15px;
         }
 
-        .logo-placeholder {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--red);
-            font-weight: bold;
-            font-size: 12px;
-        }
-
-        .brand h1 {
-            font-size: 22px;
-            letter-spacing: 1px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 14px;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 21px;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-
-        .social-links a:hover {
-            color: var(--red);
-        }
-
-        /* HERO */
-
-        .hero {
-            background:
-                linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
-                url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=80")
-                center/cover;
-
-            min-height: 480px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-            color: white;
-        }
-
-        .hero-content {
-            max-width: 900px;
-        }
-
-        .hero h2 {
-            font-size: clamp(40px, 8vw, 80px);
-            font-weight: 900;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 22px;
-            color: #ddd;
-            margin-bottom: 30px;
-        }
-
-        .hero-button {
-            display: inline-block;
-            background: var(--red);
-            color: white;
-            padding: 13px 28px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* NEXT MATCH */
-
-        .next-match {
-            max-width: 850px;
-            margin: -70px auto 60px;
-            position: relative;
-            z-index: 10;
-            background: white;
-            border-radius: 15px;
-            padding: 35px 25px;
-            text-align: center;
-            box-shadow: 0 12px 35px rgba(0,0,0,.15);
-        }
-
-        .badge {
-            display: inline-block;
-            background: var(--red);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .next-match h2 {
-            margin-bottom: 20px;
-        }
-
-        .teams {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            font-size: 25px;
-            font-weight: bold;
-        }
-
-        .vs {
-            color: var(--red);
-            font-size: 18px;
-        }
-
-        .match-info {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            color: var(--gray);
-        }
-
-        /* SECTIONS */
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 0 20px;
-        }
-
-        section {
-            margin-bottom: 70px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 32px;
+        .team-name {
+            font-size: 1.1rem;
+            font-weight: 800;
             text-transform: uppercase;
-            margin-bottom: 35px;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+            line-height: 1.2;
         }
 
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 55px;
-            height: 4px;
-            background: var(--red);
-            margin: 10px auto;
+        .team-home {
+            color: #ffffff;
         }
 
-        /* SQUAD */
-
-        .squad-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 18px;
+        .team-away {
+            color: #e5e7eb;
         }
 
-        .player-card {
-            background: white;
-            border-radius: 10px;
-            padding: 22px 15px;
-            text-align: center;
-            border-top: 4px solid var(--red);
-            box-shadow: 0 5px 15px rgba(0,0,0,.06);
-            transition: .2s;
-        }
-
-        .player-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .number {
-            font-size: 35px;
+        .vs-badge {
+            font-size: 1.5rem;
             font-weight: 900;
-            color: var(--red);
+            font-style: italic;
+            color: var(--red-accent);
+            padding: 0 15px;
+            text-shadow: 0 0 10px var(--red-glow);
         }
 
-        .player-name {
-            font-weight: bold;
-            margin-top: 5px;
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 20px 0;
         }
 
-        .role {
-            color: var(--gray);
-            font-size: 13px;
+        .description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 24px;
         }
 
-        /* TABLE */
-
-        .table-box {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,.06);
-        }
-
-        /* SOCIAL */
-
-        .social-section {
-            text-align: center;
-        }
-
-        .social-buttons {
+        .details-list {
+            list-style: none;
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 12px;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 16px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .social-button {
-            display: inline-flex;
+        .details-item {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 9px;
-            padding: 13px 22px;
-            border-radius: 7px;
-            background: var(--dark);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: .2s;
+            font-size: 0.9rem;
         }
 
-        .social-button:hover {
-            background: var(--red);
+        .details-label {
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
-        /* FOOTER */
-
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 4px solid var(--red);
+        .details-value {
+            color: #ffffff;
+            font-weight: 700;
         }
 
-        footer p {
-            color: #aaa;
-            font-size: 14px;
+        .footer-callout {
+            margin-top: 28px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--red-accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        /* MOBILE */
-
-        @media (max-width: 600px) {
-
-            header {
-                padding: 12px 15px;
-            }
-
-            .brand h1 {
-                font-size: 16px;
-            }
-
-            .logo-placeholder {
-                width: 45px;
-                height: 45px;
-            }
-
-            .hero {
-                min-height: 400px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .teams {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .next-match {
-                margin-left: 15px;
-                margin-right: 15px;
-            }
-
-            .section-title {
-                font-size: 26px;
-            }
+        .hashtags {
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: #6b7280;
+            line-height: 1.4;
         }
     </style>
 </head>
-
 <body>
 
-<header>
-    <div class="brand">
-        <div class="logo-placeholder">BR</div>
-        <h1>BLANQUIROJOS F.C.</h1>
-    </div>
+    <div class="match-card">
+        <span class="header-tag">Pre-Match Preview</span>
+        
+        <div class="teams-container">
+            <div class="team">
+                <div class="team-name team-home">Blanquirojos<br>F.C.</div>
+            </div>
+            <div class="vs-badge">VS</div>
+            <div class="team">
+                <div class="team-name team-away">Lions De<br>Costa</div>
+            </div>
+        </div>
 
-    <div class="social-links">
-        <a href="https://www.instagram.com/blanquirojos_costablanca/"
-           target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-
-        <a href="https://www.youtube.com/@blanquirojos"
-           target="_blank">
-            <i class="fab fa-youtube"></i>
-        </a>
-
-        <a href="https://www.tiktok.com/@blanquirojos_costablanca"
-           target="_blank">
-            <i class="fab fa-tiktok"></i>
-        </a>
-    </div>
-</header>
-
-<section class="hero">
-    <div class="hero-content">
-        <h2>BLANQUIROJOS F.C.</h2>
-        <p>Más que un equipo</p>
-
-        <a href="#mecz" class="hero-button">
-            NAJBLIŻSZY MECZ
-        </a>
-    </div>
-</section>
-
-<div class="next-match" id="mecz">
-
-    <span class="badge">
-        LIGA FRATELO • TERCERA DIVISIÓN
-    </span>
-
-    <h2>NAJBLIŻSZY MECZ</h2>
-
-    <div class="teams">
-        <span>BLANQUIROJOS F.C.</span>
-        <span class="vs">VS</span>
-        <span>LIONS DE COSTA</span>
-    </div>
-
-    <div class="match-info">
-        <span>
-            <i class="far fa-calendar"></i>
-            12.09.2026
-        </span>
-
-        <span>
-            <i class="far fa-clock"></i>
-            21:00
-        </span>
-
-        <span>
-            <i class="fas fa-location-dot"></i>
-            Torrevieja
-        </span>
-    </div>
-
-</div>
-
-<div class="container">
-
-<section id="druzyna">
-
-    <h2 class="section-title">KADRA ZESPOŁU</h2>
-
-    <div class="squad-grid">
-
-        <div class="player-card"><div class="number">#1</div><div class="player-name">Wojciech Budkowski</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#2</div><div class="player-name">Piotr Tokaj</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#3</div><div class="player-name">Szymon Dino Przygoda</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#4</div><div class="player-name">Artur K.</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#5</div><div class="player-name">Krzysztof Kozioł</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#6</div><div class="player-name">Igor Kępa</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#7</div><div class="player-name">Arnold Różewicz</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#8</div><div class="player-name">Adam Hejducki</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#9</div><div class="player-name">Adam Czernia</div><div class="role">Kapitan / Trener</div></div>
-
-        <div class="player-card"><div class="number">#10</div><div class="player-name">Maciej Pawlicki</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#11</div><div class="player-name">Paweł Kępa</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#14</div><div class="player-name">Mindaugas Vilimas</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#15</div><div class="player-name">Jerzy Melgies</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#17</div><div class="player-name">Nerijus</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#18</div><div class="player-name">Bartek Piętka</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#19</div><div class="player-name">Marcin Kaproń</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#20</div><div class="player-name">Michał Cegłowski</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#21</div><div class="player-name">Michał Osomański</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#25</div><div class="player-name">Dariusz Jadczak</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#26</div><div class="player-name">Szymon Szcześniak</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#44</div><div class="player-name">Daniel Niedzielski</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#47</div><div class="player-name">Michał Wycisk</div><div class="role">Zawodnik</div></div>
-
-        <div class="player-card"><div class="number">#99</div><div class="player-name">Patryk Wajszczuk</div><div class="role">Zawodnik</div></div>
-
-    </div>
-
-</section>
-
-<section>
-
-    <h2 class="section-title">TABELA I WYNIKI</h2>
-
-    <div class="table-box">
-        <i class="fas fa-trophy fa-2x"></i>
-
-        <h3>SEZON 2026/27</h3>
-
-        <p>
-            Tabela ligowa i wyniki meczów pojawią się tutaj.
+        <p class="description">
+            Wracamy do gry! Przed nami inauguracja nowego sezonu. Już w najbliższą sobotę zmierzymy się w domowym spotkaniu. Bądźcie z nami i głośno dopingujcie od pierwszej minuty!
         </p>
+
+        <div class="divider"></div>
+
+        <ul class="details-list">
+            <li class="details-item">
+                <span class="details-label">🗓️ Data</span>
+                <span class="details-value">12.09.2026 r. (Sobota)</span>
+            </li>
+            <li class="details-item">
+                <span class="details-label">⏰ Godzina</span>
+                <span class="details-value">21:00</span>
+            </li>
+            <li class="details-item">
+                <span class="details-label">🏆 Rozgrywki</span>
+                <span class="details-value">3º Division · Apertura</span>
+            </li>
+            <li class="details-item">
+                <span class="details-label">🥊 Runda</span>
+                <span class="details-value">Jornada 1</span>
+            </li>
+        </ul>
+
+        <div class="footer-callout">
+            🔴⚪ DO BOJU BLANQUIROJOS! 🔴⚪
+        </div>
+
+        <div class="hashtags">
+            #BlanquirojosFC #LionsDeCosta #3Division #Apertura #Jornada1 #Matchday
+        </div>
     </div>
-
-</section>
-
-<section class="social-section">
-
-    <h2 class="section-title">BLANQUIROJOS W SIECI</h2>
-
-    <div class="social-buttons">
-
-        <a class="social-button"
-           href="https://www.instagram.com/blanquirojos_costablanca/"
-           target="_blank">
-            <i class="fab fa-instagram"></i>
-            Instagram
-        </a>
-
-        <a class="social-button"
-           href="https://www.youtube.com/@blanquirojos"
-           target="_blank">
-            <i class="fab fa-youtube"></i>
-            YouTube
-        </a>
-
-        <a class="social-button"
-           href="https://www.tiktok.com/@blanquirojos_costablanca"
-           target="_blank">
-            <i class="fab fa-tiktok"></i>
-            TikTok
-        </a>
-
-    </div>
-
-</section>
-
-</div>
-
-<footer>
-    <strong>BLANQUIROJOS F.C.</strong>
-    <p>Costa Blanca • España • Temporada 2026/27</p>
-    <p>© 2026 Blanquirojos F.C.</p>
-</footer>
 
 </body>
 </html>
