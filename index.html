@@ -8,7 +8,7 @@
 <title>Blanquirojos F.C. | Costa Blanca</title>
 
 <meta name="description"
-      content="Blanquirojos F.C. – polski klub piłkarski na Costa Blanca. Sezon 2026/27.">
+      content="Blanquirojos F.C. – polski klub piłkarski na Costa Blanca. Temporada 2026/27.">
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,15 +17,14 @@
 
 :root {
     --red: #8b1e2b;
-    --red-hover: #6e1620;
+    --red-dark: #64131e;
     --gold: #c2ab87;
-    --gold-light: #d8c7a9;
-    --dark: #121417;
-    --dark-card: #1a1d24;
+    --gold-light: #e3d4bb;
+    --dark: #101216;
+    --dark-card: #181b21;
     --white: #ffffff;
-    --light: #f4f4f6;
+    --light: #f3f3f5;
     --gray: #8c92a0;
-    --green: #3b8d5a;
 }
 
 * {
@@ -49,25 +48,22 @@ a {
     color: inherit;
 }
 
-
 /* =========================
    HEADER
 ========================= */
 
 header {
-    background: var(--dark);
+    background: rgba(16,18,22,.97);
     color: white;
-    padding: 12px 25px;
-
+    padding: 11px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     border-bottom: 3px solid var(--gold);
-
     position: sticky;
     top: 0;
     z-index: 1000;
+    backdrop-filter: blur(8px);
 }
 
 .brand {
@@ -79,17 +75,13 @@ header {
 .logo-container {
     width: 58px;
     height: 58px;
-
     border-radius: 50%;
     overflow: hidden;
-
     border: 2px solid var(--gold);
     background: #111;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     flex-shrink: 0;
 }
 
@@ -110,22 +102,20 @@ header {
     gap: 20px;
 }
 
-.players-link {
+.players-link,
+.table-link {
     color: white;
     text-decoration: none;
-
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
-
-    padding: 9px 14px;
-
+    padding: 9px 13px;
     border: 1px solid var(--gold);
     border-radius: 6px;
-
     transition: .2s;
 }
 
-.players-link:hover {
+.players-link:hover,
+.table-link:hover {
     background: var(--red);
     color: var(--gold-light);
 }
@@ -146,265 +136,207 @@ header {
     color: var(--gold);
 }
 
-
 /* =========================
    HERO
 ========================= */
 
 .hero {
-    min-height: 620px;
-
+    min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-align: center;
-
     padding: 70px 20px;
+    position: relative;
+    overflow: hidden;
 
     background:
         linear-gradient(
-            rgba(10,12,15,.68),
-            rgba(10,12,15,.90)
+            135deg,
+            rgba(10,12,15,.94),
+            rgba(80,16,27,.78),
+            rgba(10,12,15,.94)
         ),
-        url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=2000&q=90")
-        center/cover no-repeat;
-
-    position: relative;
-    overflow: hidden;
+        url("https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=2000&q=90")
+        center/cover;
 }
 
 .hero::before {
     content: "";
-
     position: absolute;
     inset: 0;
 
     background:
         radial-gradient(
             circle at center,
-            rgba(139,30,43,.25),
-            transparent 58%
+            rgba(194,171,135,.16),
+            transparent 45%
         );
 
     pointer-events: none;
 }
 
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+
+    background: linear-gradient(
+        transparent,
+        var(--light)
+    );
+
+    opacity: .35;
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
-
     max-width: 950px;
 }
 
 .hero-logo {
-    width: 150px;
-    height: 150px;
-
+    width: 155px;
+    height: 155px;
     object-fit: cover;
-
     border-radius: 50%;
     border: 3px solid var(--gold);
-
     margin-bottom: 25px;
-
     box-shadow:
-        0 0 0 8px rgba(194,171,135,.08),
-        0 15px 45px rgba(0,0,0,.6);
+        0 15px 45px rgba(0,0,0,.55),
+        0 0 0 8px rgba(194,171,135,.08);
 }
 
 .hero h2 {
-    font-size: clamp(45px, 8vw, 82px);
-
+    font-size: clamp(42px, 8vw, 82px);
     font-weight: 900;
-
     letter-spacing: 4px;
-
-    line-height: 1;
-
+    line-height: 1.02;
     color: white;
-
-    text-shadow:
-        0 4px 20px rgba(0,0,0,.7);
-}
-
-.hero-subtitle {
-    margin-top: 18px;
-
-    color: var(--gold-light);
-
-    font-size: clamp(16px, 3vw, 24px);
-
-    font-weight: bold;
-
-    letter-spacing: 5px;
-
-    text-transform: uppercase;
+    text-shadow: 0 5px 25px rgba(0,0,0,.6);
 }
 
 .hero-tagline {
-    margin-top: 12px;
-
-    color: rgba(255,255,255,.85);
-
-    font-size: 17px;
-
+    font-size: 25px;
+    color: var(--gold-light);
+    margin: 18px 0 8px;
+    font-weight: bold;
     letter-spacing: 2px;
+}
+
+.hero-location {
+    color: rgba(255,255,255,.75);
+    font-size: 15px;
+    margin-bottom: 30px;
 }
 
 .hero-button {
     display: inline-block;
-
-    margin-top: 32px;
-
     background: var(--red);
-
     color: white;
-
     padding: 14px 30px;
-
-    border-radius: 6px;
-
+    border-radius: 7px;
     text-decoration: none;
-
     font-weight: bold;
-
     border: 1px solid var(--gold);
-
-    transition: .25s;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.35);
+    transition: .2s;
 }
 
 .hero-button:hover {
-    background: var(--red-hover);
+    background: var(--red-dark);
     color: var(--gold-light);
     transform: translateY(-2px);
 }
-
 
 /* =========================
    NEXT MATCH
 ========================= */
 
 .next-match {
-    max-width: 950px;
-
-    margin: -70px auto 75px;
-
+    max-width: 900px;
+    margin: -75px auto 75px;
     position: relative;
     z-index: 10;
 
-    background: white;
-
-    border-radius: 16px;
-
-    padding: 35px 25px;
-
+    background: rgba(255,255,255,.98);
+    border-radius: 18px;
+    padding: 38px 25px;
     text-align: center;
 
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.15);
-
+    box-shadow: 0 15px 45px rgba(0,0,0,.18);
     border-top: 5px solid var(--red);
 }
 
 .badge {
     display: inline-block;
-
     background: var(--red);
-
     color: var(--gold-light);
-
     border: 1px solid var(--gold);
-
-    padding: 6px 15px;
-
+    padding: 6px 16px;
     border-radius: 30px;
-
-    font-size: 13px;
-
+    font-size: 12px;
     font-weight: bold;
-
     margin-bottom: 15px;
+    letter-spacing: .5px;
 }
 
 .next-match h2 {
+    font-size: 28px;
     margin-bottom: 25px;
 }
 
-
-/* MATCH TEAMS */
-
 .match-teams {
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     gap: 35px;
 }
 
 .match-team {
-    width: 180px;
-
     display: flex;
     flex-direction: column;
-
     align-items: center;
-
-    font-size: 17px;
-    font-weight: bold;
+    gap: 10px;
+    min-width: 150px;
 }
 
-.team-logo {
-    width: 105px;
-    height: 105px;
-
-    object-fit: contain;
-
-    margin-bottom: 12px;
-
+.match-team img {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
     border-radius: 50%;
-
-    background: white;
-
-    padding: 7px;
-
     border: 2px solid var(--gold);
-
-    box-shadow:
-        0 6px 18px rgba(0,0,0,.12);
+    box-shadow: 0 7px 20px rgba(0,0,0,.15);
 }
 
-.match-vs {
-    font-size: 26px;
-
+.team-name {
+    font-size: 19px;
     font-weight: 900;
+}
 
+.vs {
     color: var(--red);
+    font-size: 23px;
+    font-weight: 900;
 }
 
 .match-info {
     margin-top: 28px;
-
     display: flex;
-
     justify-content: center;
-
-    gap: 25px;
-
+    gap: 28px;
     flex-wrap: wrap;
-
     color: var(--gray);
+    font-size: 15px;
 }
 
 .match-info i {
     color: var(--red);
-    margin-right: 5px;
+    margin-right: 6px;
 }
-
 
 /* =========================
    GENERAL
@@ -412,9 +344,7 @@ header {
 
 .container {
     max-width: 1100px;
-
     margin: auto;
-
     padding: 0 20px;
 }
 
@@ -424,296 +354,93 @@ section {
 
 .section-title {
     text-align: center;
-
     font-size: 32px;
-
     text-transform: uppercase;
-
     margin-bottom: 35px;
 }
 
 .section-title::after {
     content: "";
-
     display: block;
-
     width: 55px;
     height: 4px;
-
     background: var(--red);
-
     margin: 10px auto;
 }
 
-
 /* =========================
-   SEASON STATS
+   ABOUT
 ========================= */
 
-.season-stats {
-    display: grid;
-
-    grid-template-columns:
-        repeat(7, 1fr);
-
-    gap: 12px;
-}
-
-.stat-card {
-    background: white;
-
-    padding: 20px 10px;
-
-    text-align: center;
-
-    border-radius: 10px;
-
-    border-top: 4px solid var(--red);
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.06);
-}
-
-.stat-number {
-    font-size: 27px;
-
-    font-weight: 900;
-
-    color: var(--red);
-}
-
-.stat-label {
-    color: var(--gray);
-
-    font-size: 11px;
-
-    margin-top: 4px;
-
-    text-transform: uppercase;
-}
-
-
-/* =========================
-   LAST MATCHES
-========================= */
-
-.results {
-    display: grid;
-
-    gap: 12px;
-
+.about {
     max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
+.about-box {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 7px 25px rgba(0,0,0,.07);
+    border-left: 4px solid var(--red);
+    border-right: 4px solid var(--gold);
+}
+
+.about-box h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.about-box p {
+    color: #555b66;
+    font-size: 16px;
+}
+
+/* =========================
+   QUICK LINKS
+========================= */
+
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 850px;
     margin: auto;
 }
 
-.result-card {
-    background: white;
-
-    border-radius: 10px;
-
-    padding: 16px 20px;
-
-    display: grid;
-
-    grid-template-columns:
-        90px 1fr 120px;
-
-    align-items: center;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.06);
-
-    border-left: 4px solid var(--gray);
-}
-
-.result-card.win {
-    border-left-color: var(--green);
-}
-
-.result-card.draw {
-    border-left-color: var(--gold);
-}
-
-.result-card.loss {
-    border-left-color: var(--red);
-}
-
-.result-date {
-    color: var(--gray);
-    font-size: 13px;
-}
-
-.result-teams {
-    font-weight: bold;
-}
-
-.result-score {
-    text-align: right;
-
-    font-size: 21px;
-
-    font-weight: 900;
-}
-
-.result-status {
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-    margin-left: 8px;
-}
-
-
-/* =========================
-   LEAGUE TABLE
-========================= */
-
-.league-table-wrapper {
+.quick-card {
     background: var(--dark-card);
-
-    border-radius: 15px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.18);
-
-    border: 1px solid rgba(194,171,135,.18);
-}
-
-.league-table {
-    width: 100%;
-
-    border-collapse: collapse;
-
     color: white;
-}
-
-.league-table thead {
-    background: var(--dark);
-}
-
-.league-table th {
-    padding: 17px 12px;
-
-    text-align: left;
-
-    color: var(--gold-light);
-
-    font-size: 12px;
-
-    letter-spacing: 1px;
-
-    text-transform: uppercase;
-}
-
-.league-table th:first-child,
-.league-table th:nth-child(3),
-.league-table th:nth-child(4),
-.league-table th:nth-child(5),
-.league-table th:nth-child(6),
-.league-table th:nth-child(7),
-.league-table td:first-child,
-.league-table td:nth-child(3),
-.league-table td:nth-child(4),
-.league-table td:nth-child(5),
-.league-table td:nth-child(6),
-.league-table td:nth-child(7) {
+    padding: 28px 20px;
     text-align: center;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid rgba(194,171,135,.35);
+    transition: .2s;
 }
 
-.league-table td {
-    padding: 13px 12px;
-
-    border-top:
-        1px solid rgba(255,255,255,.06);
-
-    font-size: 14px;
-}
-
-.league-table tbody tr:hover {
-    background: rgba(255,255,255,.05);
-}
-
-.league-table .promotion {
-    background: rgba(194,171,135,.12);
-
-    border-left:
-        4px solid var(--gold);
-}
-
-.league-table .blanquirojos-row {
-    background:
-        rgba(139,30,43,.28);
-
-    font-weight: bold;
-
-    border-left:
-        4px solid var(--gold);
-}
-
-.league-table .blanquirojos-row td {
-    color: var(--gold-light);
-}
-
-.league-table .relegation {
-    background:
-        rgba(139,30,43,.12);
-
-    border-left:
-        4px solid var(--red);
-}
-
-.league-table td:first-child {
-    font-weight: bold;
-
-    color: var(--gold-light);
-
-    width: 45px;
-}
-
-.table-legend {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 25px;
-
-    flex-wrap: wrap;
-
-    padding: 20px;
-
-    color: var(--gray);
-
-    font-size: 13px;
-}
-
-.table-legend span {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 7px;
-}
-
-.legend-box {
-    width: 13px;
-    height: 13px;
-
-    border-radius: 3px;
-
-    display: inline-block;
-}
-
-.promotion-color {
-    background: var(--gold);
-}
-
-.relegation-color {
+.quick-card:hover {
+    transform: translateY(-4px);
     background: var(--red);
 }
 
+.quick-card i {
+    color: var(--gold);
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.quick-card h3 {
+    font-size: 19px;
+}
+
+.quick-card p {
+    color: var(--gold-light);
+    font-size: 13px;
+    margin-top: 5px;
+}
 
 /* =========================
    SOCIAL
@@ -725,44 +452,29 @@ section {
 
 .social-buttons {
     display: flex;
-
     justify-content: center;
-
     gap: 15px;
-
     flex-wrap: wrap;
 }
 
 .social-button {
     display: inline-flex;
-
     align-items: center;
-
     gap: 9px;
-
     padding: 13px 22px;
-
     border-radius: 7px;
-
     background: var(--dark);
-
     color: white;
-
     text-decoration: none;
-
     font-weight: bold;
-
     border: 1px solid var(--gold);
-
     transition: .2s;
 }
 
 .social-button:hover {
     background: var(--red);
-
     color: var(--gold-light);
 }
-
 
 /* =========================
    SPONSORS
@@ -770,7 +482,6 @@ section {
 
 .sponsors {
     text-align: center;
-
     margin-top: 30px;
 }
 
@@ -778,97 +489,62 @@ section {
 .media-title,
 .partner-title {
     color: var(--gray);
-
     font-size: 13px;
-
     text-transform: uppercase;
-
     letter-spacing: 2px;
-
     margin-bottom: 20px;
 }
 
 .main-sponsor {
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     margin: 10px auto 50px;
 }
 
 .main-sponsor img {
     max-width: 340px;
-
     max-height: 130px;
-
     object-fit: contain;
-
     background: white;
-
     padding: 15px 25px;
-
     border-radius: 12px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.10);
+    box-shadow: 0 8px 25px rgba(0,0,0,.10);
 }
 
 .media-sponsor {
     display: flex;
-
     justify-content: center;
-
     margin-bottom: 45px;
 }
 
 .media-sponsor img {
     max-width: 250px;
-
     max-height: 80px;
-
     object-fit: contain;
-
     background: white;
-
     padding: 10px 18px;
-
     border-radius: 8px;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.06);
+    box-shadow: 0 5px 15px rgba(0,0,0,.06);
 }
 
 .partner-logos {
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     gap: 25px;
-
     flex-wrap: wrap;
 }
 
 .partner-logos img {
     max-width: 160px;
-
     max-height: 70px;
-
     object-fit: contain;
-
     background: white;
-
     padding: 10px 15px;
-
     border-radius: 8px;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.06);
+    box-shadow: 0 5px 15px rgba(0,0,0,.06);
 }
-
 
 /* =========================
    FOOTER
@@ -876,13 +552,9 @@ section {
 
 footer {
     background: var(--dark);
-
     color: white;
-
     text-align: center;
-
     padding: 35px 20px;
-
     border-top: 4px solid var(--gold);
 }
 
@@ -892,64 +564,40 @@ footer strong {
 
 footer p {
     color: var(--gold-light);
-
     font-size: 14px;
-
     margin-top: 5px;
 }
-
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 800px) {
-
-    .season-stats {
-        grid-template-columns:
-            repeat(4, 1fr);
-    }
-
-    .result-card {
-        grid-template-columns:
-            70px 1fr 80px;
-    }
-
-    .league-table {
-        min-width: 760px;
-    }
-
-    .league-table-wrapper {
-        overflow-x: auto;
-    }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     header {
-        padding: 10px 14px;
+        padding: 9px 12px;
     }
 
     .brand {
-        gap: 9px;
+        gap: 8px;
     }
 
     .brand h1 {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .logo-container {
-        width: 45px;
-        height: 45px;
+        width: 44px;
+        height: 44px;
     }
 
     .header-right {
         gap: 8px;
     }
 
-    .players-link {
+    .players-link,
+    .table-link {
         padding: 7px 8px;
-
         font-size: 10px;
     }
 
@@ -962,44 +610,31 @@ footer p {
     }
 
     .hero {
-        min-height: 540px;
-
+        min-height: 500px;
         padding: 50px 15px;
     }
 
     .hero-logo {
-        width: 115px;
-        height: 115px;
+        width: 110px;
+        height: 110px;
     }
 
     .hero h2 {
-        font-size: 39px;
-
+        font-size: 37px;
         letter-spacing: 1px;
-    }
-
-    .hero-subtitle {
-        font-size: 14px;
-
-        letter-spacing: 3px;
     }
 
     .hero-tagline {
-        font-size: 14px;
-
-        letter-spacing: 1px;
+        font-size: 20px;
     }
 
-    .hero-button {
-        padding: 12px 24px;
-
-        margin-top: 26px;
+    .hero-location {
+        font-size: 13px;
     }
 
     .next-match {
         margin-left: 15px;
         margin-right: 15px;
-
         padding: 30px 15px;
     }
 
@@ -1008,23 +643,24 @@ footer p {
     }
 
     .match-team {
-        width: 125px;
-
-        font-size: 13px;
+        min-width: 100px;
     }
 
-    .team-logo {
-        width: 80px;
-        height: 80px;
+    .match-team img {
+        width: 65px;
+        height: 65px;
     }
 
-    .match-vs {
-        font-size: 20px;
+    .team-name {
+        font-size: 14px;
+    }
+
+    .vs {
+        font-size: 17px;
     }
 
     .match-info {
         gap: 12px;
-
         font-size: 13px;
     }
 
@@ -1032,38 +668,12 @@ footer p {
         font-size: 25px;
     }
 
-    .season-stats {
-        grid-template-columns:
-            repeat(2, 1fr);
+    .about-box {
+        padding: 25px 18px;
     }
 
-    .result-card {
-        grid-template-columns:
-            1fr 80px;
-
-        gap: 8px;
-    }
-
-    .result-date {
-        grid-column: 1 / -1;
-    }
-
-    .result-score {
-        grid-column: 2;
-        grid-row: 2;
-    }
-
-    .result-teams {
-        grid-column: 1;
-        grid-row: 2;
-    }
-
-    .table-legend {
-        flex-direction: column;
-
-        align-items: center;
-
-        gap: 10px;
+    .quick-links {
+        grid-template-columns: 1fr;
     }
 
     .main-sponsor img {
@@ -1080,15 +690,14 @@ footer p {
         max-width: 135px;
         max-height: 60px;
     }
+
 }
 
 </style>
 
 </head>
 
-
 <body>
-
 
 <!-- =========================
      HEADER
@@ -1106,23 +715,20 @@ footer p {
 
         </div>
 
-        <h1>
-            BLANQUIROJOS F.C.
-        </h1>
+        <h1>BLANQUIROJOS F.C.</h1>
 
     </div>
 
 
     <div class="header-right">
 
-        <a
-            href="zawodnicy.html"
-            class="players-link">
-
+        <a href="zawodnicy.html" class="players-link">
             ZAWODNICY
-
         </a>
 
+        <a href="tabela.html" class="table-link">
+            TABELA
+        </a>
 
         <div class="social-links">
 
@@ -1130,29 +736,21 @@ footer p {
                 href="https://www.instagram.com/blanquirojos_costablanca/"
                 target="_blank"
                 aria-label="Instagram">
-
                 <i class="fab fa-instagram"></i>
-
             </a>
-
 
             <a
                 href="https://www.youtube.com/@blanquirojos"
                 target="_blank"
                 aria-label="YouTube">
-
                 <i class="fab fa-youtube"></i>
-
             </a>
-
 
             <a
                 href="https://www.tiktok.com/@blanquirojos_costablanca"
                 target="_blank"
                 aria-label="TikTok">
-
                 <i class="fab fa-tiktok"></i>
-
             </a>
 
         </div>
@@ -1179,22 +777,16 @@ footer p {
             BLANQUIROJOS F.C.
         </h2>
 
-        <div class="hero-subtitle">
-            COSTA BLANCA • 2026/27
-        </div>
-
         <div class="hero-tagline">
-            JEDEN KLUB • JEDNA DRUŻYNA • JEDEN CEL
+            MÁS QUE UN EQUIPO
         </div>
 
-        <a
-            href="#mecz"
-            class="hero-button">
+        <div class="hero-location">
+            COSTA BLANCA • ESPAÑA • TEMPORADA 2026/27
+        </div>
 
-            <i class="fas fa-futbol"></i>
-
+        <a href="#mecz" class="hero-button">
             NAJBLIŻSZY MECZ
-
         </a>
 
     </div>
@@ -1206,9 +798,7 @@ footer p {
      NEXT MATCH
 ========================= -->
 
-<div
-    class="next-match"
-    id="mecz">
+<div class="next-match" id="mecz">
 
     <span class="badge">
         LIGA FRATELO • TERCERA DIVISIÓN
@@ -1218,25 +808,22 @@ footer p {
         NAJBLIŻSZY MECZ
     </h2>
 
-
     <div class="match-teams">
-
 
         <div class="match-team">
 
             <img
-                class="team-logo"
                 src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
                 alt="Blanquirojos F.C.">
 
-            <span>
+            <div class="team-name">
                 BLANQUIROJOS F.C.
-            </span>
+            </div>
 
         </div>
 
 
-        <div class="match-vs">
+        <div class="vs">
             VS
         </div>
 
@@ -1244,13 +831,12 @@ footer p {
         <div class="match-team">
 
             <img
-                class="team-logo"
                 src="https://i.postimg.cc/sBx2xQCY/IMG-5872.jpg"
                 alt="Lions de Costa">
 
-            <span>
+            <div class="team-name">
                 LIONS DE COSTA
-            </span>
+            </div>
 
         </div>
 
@@ -1283,52 +869,31 @@ footer p {
 
 
 <!-- =========================
-     STATYSTYKI SEZONU
+     O KLUBIE
 ========================= -->
 
-<section>
+<section class="about">
 
     <h2 class="section-title">
-        SEZON 2026/27
+        O KLUBIE
     </h2>
 
+    <div class="about-box">
 
-    <div class="season-stats">
+        <h3>
+            MÁS QUE UN EQUIPO
+        </h3>
 
-        <div class="stat-card">
-            <div class="stat-number">0</div>
-            <div class="stat-label">Mecze</div>
-        </div>
+        <p>
+            Blanquirojos F.C. to polski klub piłkarski działający
+            na Costa Blanca. Łączymy sport, ambicję i polską
+            społeczność w Hiszpanii.
+        </p>
 
-        <div class="stat-card">
-            <div class="stat-number">0</div>
-            <div class="stat-label">Zwycięstwa</div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-number">0</div>
-            <div class="stat-label">Remisy</div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-number">0</div>
-            <div class="stat-label">Porażki</div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-number">0</div>
-            <div class="stat-label">Bramki</div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-number">0</div>
-            <div class="stat-label">Stracone</div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-number">0</div>
-            <div class="stat-label">Punkty</div>
-        </div>
+        <p style="margin-top:12px;">
+            Sezon 2026/27 to początek kolejnego rozdziału
+            w historii naszego zespołu.
+        </p>
 
     </div>
 
@@ -1336,317 +901,45 @@ footer p {
 
 
 <!-- =========================
-     OSTATNIE MECZE
+     SZYBKIE PRZEJŚCIA
 ========================= -->
 
 <section>
 
     <h2 class="section-title">
-        OSTATNIE MECZE
+        BLANQUIROJOS
     </h2>
 
+    <div class="quick-links">
 
-    <div class="results">
+        <a href="zawodnicy.html" class="quick-card">
 
+            <i class="fas fa-users"></i>
 
-        <div class="result-card win">
+            <h3>
+                KADRA ZESPOŁU
+            </h3>
 
-            <div class="result-date">
-                —
-            </div>
+            <p>
+                Poznaj zawodników Blanquirojos F.C.
+            </p>
 
-            <div class="result-teams">
-                BLANQUIROJOS F.C. — —
-            </div>
+        </a>
 
-            <div class="result-score">
-                —
-            </div>
 
-        </div>
+        <a href="tabela.html" class="quick-card">
 
+            <i class="fas fa-ranking-star"></i>
 
-        <div class="result-card draw">
+            <h3>
+                TABELA LIGOWA
+            </h3>
 
-            <div class="result-date">
-                —
-            </div>
+            <p>
+                Aktualna sytuacja w lidze.
+            </p>
 
-            <div class="result-teams">
-                BLANQUIROJOS F.C. — —
-            </div>
-
-            <div class="result-score">
-                —
-            </div>
-
-        </div>
-
-
-        <div class="result-card loss">
-
-            <div class="result-date">
-                —
-            </div>
-
-            <div class="result-teams">
-                BLANQUIROJOS F.C. — —
-            </div>
-
-            <div class="result-score">
-                —
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     TABELA LIGOWA
-========================= -->
-
-<section id="tabela">
-
-    <h2 class="section-title">
-        TABELA LIGOWA
-    </h2>
-
-
-    <div class="league-table-wrapper">
-
-        <table class="league-table">
-
-            <thead>
-
-                <tr>
-
-                    <th>#</th>
-                    <th>DRUŻYNA</th>
-                    <th>M</th>
-                    <th>W</th>
-                    <th>R</th>
-                    <th>P</th>
-                    <th>PKT</th>
-
-                </tr>
-
-            </thead>
-
-
-            <tbody>
-
-
-                <tr class="promotion">
-
-                    <td>1</td>
-                    <td>ALONE FC</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr class="promotion">
-
-                    <td>2</td>
-                    <td>ASESORIA ANTOLINOS</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr class="blanquirojos-row">
-
-                    <td>3</td>
-                    <td>BLANQUIROJOS</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>4</td>
-                    <td>BOOKING PUB</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>5</td>
-                    <td>CERRAJERIA FEMA</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>6</td>
-                    <td>COSTA UNITED</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>7</td>
-                    <td>GOLD TEAM</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>8</td>
-                    <td>LA CUEVA</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>9</td>
-                    <td>LEONES DEL PARQUE</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>10</td>
-                    <td>LIONS DE COSTA</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr class="relegation">
-
-                    <td>11</td>
-                    <td>NEW DAYA F7</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr class="relegation">
-
-                    <td>12</td>
-                    <td>REAL TORREVIEJA</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr class="relegation">
-
-                    <td>13</td>
-                    <td>RESTAURANTE MARTIN</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-                <tr class="relegation">
-
-                    <td>14</td>
-                    <td>TALLERES ABEL</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-
-                </tr>
-
-
-            </tbody>
-
-        </table>
-
-
-        <div class="table-legend">
-
-            <span>
-
-                <span class="legend-box promotion-color"></span>
-
-                Awans do 2ª División
-
-            </span>
-
-
-            <span>
-
-                <span class="legend-box relegation-color"></span>
-
-                Spadek do 4ª División
-
-            </span>
-
-        </div>
+        </a>
 
     </div>
 
@@ -1663,9 +956,7 @@ footer p {
         BLANQUIROJOS W SIECI
     </h2>
 
-
     <div class="social-buttons">
-
 
         <a
             class="social-button"
@@ -1673,7 +964,6 @@ footer p {
             target="_blank">
 
             <i class="fab fa-instagram"></i>
-
             Instagram
 
         </a>
@@ -1685,7 +975,6 @@ footer p {
             target="_blank">
 
             <i class="fab fa-youtube"></i>
-
             YouTube
 
         </a>
@@ -1697,11 +986,9 @@ footer p {
             target="_blank">
 
             <i class="fab fa-tiktok"></i>
-
             TikTok
 
         </a>
-
 
     </div>
 
@@ -1714,11 +1001,9 @@ footer p {
 
 <section class="sponsors">
 
-
     <div class="sponsors-title">
         Sponsor główny
     </div>
-
 
     <div class="main-sponsor">
 
@@ -1733,7 +1018,6 @@ footer p {
         Patron medialny
     </div>
 
-
     <div class="media-sponsor">
 
         <img
@@ -1747,22 +1031,17 @@ footer p {
         Partnerzy
     </div>
 
-
     <div class="partner-logos">
-
 
         <img
             src="https://i.postimg.cc/vDpm0ZF6/logotyp-Kids-Zone.png"
             alt="KidsZone">
 
-
         <img
             src="https://i.postimg.cc/Cz2kwgq7/4f184fdf-0cae-4d6b-a028-5c82d30dd9c2.jpg"
             alt="Partner Blanquirojos F.C.">
 
-
     </div>
-
 
 </section>
 
@@ -1780,11 +1059,9 @@ footer p {
         BLANQUIROJOS F.C.
     </strong>
 
-
     <p>
         Costa Blanca • España • Temporada 2026/27
     </p>
-
 
     <p>
         © 2026 Blanquirojos F.C.
