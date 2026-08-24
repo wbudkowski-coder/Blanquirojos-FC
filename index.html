@@ -10,11 +10,16 @@
 
     <style>
         :root {
-            --red: #d71920;
-            --dark: #111111;
+            /* Nowa kolorystyka wyciągnięta bezpośrednio z Herbu */
+            --red: #8b1e2b;          /* Bordo / Ciemna Czerwień */
+            --red-hover: #6e1620;    /* Ciemniejsza bordo */
+            --gold: #c2ab87;         /* Złoto / Beż z napisu i obramowań */
+            --gold-light: #d8c7a9;   /* Jasne złoto */
+            --dark: #121417;         /* Ciemne grafitowe tło */
+            --dark-card: #1a1d24;    /* Tło kart i elementów */
             --white: #ffffff;
-            --light: #f5f5f5;
-            --gray: #777;
+            --light: #f4f4f6;
+            --gray: #8c92a0;
         }
 
         * {
@@ -39,11 +44,11 @@
         header {
             background: var(--dark);
             color: white;
-            padding: 18px 25px;
+            padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 4px solid var(--red);
+            border-bottom: 4px solid var(--gold);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -55,22 +60,29 @@
             gap: 15px;
         }
 
-        .logo-placeholder {
+        /* LOGO DRUŻYNY W NAGŁÓWKU */
+        .logo-container {
             width: 55px;
             height: 55px;
             border-radius: 50%;
-            background: white;
+            overflow: hidden;
+            border: 2px solid var(--gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--red);
-            font-weight: bold;
-            font-size: 12px;
+            background: var(--dark);
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .brand h1 {
             font-size: 22px;
             letter-spacing: 1px;
+            color: var(--white);
         }
 
         .social-links {
@@ -86,14 +98,14 @@
         }
 
         .social-links a:hover {
-            color: var(--red);
+            color: var(--gold);
         }
 
         /* HERO */
 
         .hero {
             background:
-                linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
+                linear-gradient(rgba(18, 20, 23, 0.85), rgba(18, 20, 23, 0.85)),
                 url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=80")
                 center/cover;
 
@@ -115,11 +127,12 @@
             font-weight: 900;
             letter-spacing: 3px;
             margin-bottom: 10px;
+            color: var(--white);
         }
 
         .hero p {
             font-size: 22px;
-            color: #ddd;
+            color: var(--gold-light);
             margin-bottom: 30px;
         }
 
@@ -131,6 +144,13 @@
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
+            border: 1px solid var(--gold);
+            transition: 0.2s;
+        }
+
+        .hero-button:hover {
+            background: var(--red-hover);
+            color: var(--gold-light);
         }
 
         /* NEXT MATCH */
@@ -145,12 +165,14 @@
             padding: 35px 25px;
             text-align: center;
             box-shadow: 0 12px 35px rgba(0,0,0,.15);
+            border-top: 5px solid var(--red);
         }
 
         .badge {
             display: inline-block;
             background: var(--red);
-            color: white;
+            color: var(--gold-light);
+            border: 1px solid var(--gold);
             padding: 6px 15px;
             border-radius: 30px;
             font-size: 13px;
@@ -173,7 +195,8 @@
 
         .vs {
             color: var(--red);
-            font-size: 18px;
+            font-size: 20px;
+            font-weight: 900;
         }
 
         .match-info {
@@ -183,6 +206,10 @@
             gap: 25px;
             flex-wrap: wrap;
             color: var(--gray);
+        }
+
+        .match-info i {
+            color: var(--red);
         }
 
         /* SECTIONS */
@@ -233,6 +260,7 @@
 
         .player-card:hover {
             transform: translateY(-4px);
+            border-top-color: var(--gold);
         }
 
         .number {
@@ -284,11 +312,13 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
+            border: 1px solid var(--gold);
             transition: .2s;
         }
 
         .social-button:hover {
             background: var(--red);
+            color: var(--gold-light);
         }
 
         /* FOOTER */
@@ -298,11 +328,11 @@
             color: white;
             text-align: center;
             padding: 30px 20px;
-            border-top: 4px solid var(--red);
+            border-top: 4px solid var(--gold);
         }
 
         footer p {
-            color: #aaa;
+            color: var(--gold-light);
             font-size: 14px;
         }
 
@@ -318,7 +348,7 @@
                 font-size: 16px;
             }
 
-            .logo-placeholder {
+            .logo-container {
                 width: 45px;
                 height: 45px;
             }
@@ -352,7 +382,10 @@
 
 <header>
     <div class="brand">
-        <div class="logo-placeholder">BR</div>
+        <!-- TWOJE LOGO KLUBOWE -->
+        <div class="logo-container">
+            <img src="logo.png" alt="Blanquirojos F.C. Logo">
+        </div>
         <h1>BLANQUIROJOS F.C.</h1>
     </div>
 
@@ -481,7 +514,7 @@
     <h2 class="section-title">TABELA I WYNIKI</h2>
 
     <div class="table-box">
-        <i class="fas fa-trophy fa-2x"></i>
+        <i class="fas fa-trophy fa-2x" style="color: var(--gold);"></i>
 
         <h3>SEZON 2026/27</h3>
 
@@ -532,4 +565,4 @@
 </footer>
 
 </body>
-</html>  
+</html>
