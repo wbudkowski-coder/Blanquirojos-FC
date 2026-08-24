@@ -4,69 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zapowiedź Meczu - Blanquirojos F.C. vs Lions De Costa</title>
+    <!-- Biblioteka do automatycznego pobierania grafiki -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
-            --bg-dark: #0a0d14;
-            --card-bg: rgba(15, 23, 42, 0.9);
-            --gold-accent: #d97706;
-            --gold-glow: rgba(217, 119, 6, 0.35);
+            --bg-dark: #0b0e14;
+            --card-bg: #12161f;
             --red-accent: #dc2626;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #1e293b;
+            --red-glow: rgba(220, 38, 38, 0.4);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #262c3a;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            background-image: 
-                radial-gradient(circle at 50% 10%, rgba(217, 119, 6, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 50% 90%, rgba(220, 38, 38, 0.1) 0%, transparent 50%);
         }
 
+        /* Karta do pobrania */
         .match-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-top: 4px solid var(--gold-accent);
-            border-radius: 20px;
+            border-top: 5px solid var(--red-accent);
+            border-radius: 16px;
             width: 100%;
-            max-width: 520px;
-            padding: 35px 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px var(--gold-glow);
-            backdrop-filter: blur(12px);
+            max-width: 500px;
+            padding: 32px 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             text-align: center;
+            position: relative;
         }
 
         .header-tag {
             display: inline-block;
-            background: linear-gradient(90deg, var(--gold-accent), var(--red-accent));
+            background: linear-gradient(90deg, #b91c1c, var(--red-accent));
             color: #ffffff;
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 2.5px;
-            padding: 6px 18px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 6px 16px;
             border-radius: 20px;
             text-transform: uppercase;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
         .teams-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 24px;
+            padding: 0 10px;
         }
 
         .team {
@@ -76,57 +77,36 @@
             align-items: center;
         }
 
-        .logo-box {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid var(--border-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2.5rem;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .team-home .logo-box {
-            border-color: var(--red-accent);
-        }
-
-        .team-away .logo-box {
-            border-color: var(--gold-accent);
-        }
-
         .team-name {
-            font-size: 1rem;
+            font-size: 1.15rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             line-height: 1.2;
         }
 
+        .team-home { color: #ffffff; }
+        .team-away { color: #e5e7eb; }
+
         .vs-badge {
             font-size: 1.6rem;
             font-weight: 900;
             font-style: italic;
-            background: linear-gradient(180deg, #ffffff, var(--gold-accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            padding: 0 10px;
+            color: var(--red-accent);
+            padding: 0 15px;
         }
 
         .divider {
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
-            margin: 24px 0;
+            background: var(--border-color);
+            margin: 20px 0;
         }
 
         .description {
             font-size: 0.95rem;
             color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 24px;
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
 
         .details-list {
@@ -136,8 +116,8 @@
             gap: 12px;
             text-align: left;
             background: rgba(0, 0, 0, 0.3);
-            padding: 18px;
-            border-radius: 12px;
+            padding: 16px 20px;
+            border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -150,6 +130,7 @@
 
         .details-label {
             color: var(--text-muted);
+            font-weight: 500;
         }
 
         .details-value {
@@ -158,36 +139,53 @@
         }
 
         .footer-callout {
-            margin-top: 28px;
+            margin-top: 24px;
             font-size: 1.1rem;
             font-weight: 800;
-            color: var(--gold-accent);
+            color: var(--red-accent);
             letter-spacing: 1px;
             text-transform: uppercase;
+        }
+
+        /* Przycisk pobierania */
+        .download-btn {
+            margin-top: 25px;
+            background: var(--red-accent);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 15px var(--red-glow);
+        }
+
+        .download-btn:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
 
-    <div class="match-card">
+    <!-- KARTA MECZOWA (TO ZOSTANIE ZAPISANE JAKO OBRAZEK) -->
+    <div class="match-card" id="card-to-download">
         <span class="header-tag">Pre-Match Preview</span>
         
         <div class="teams-container">
-            <div class="team team-home">
-                <div class="logo-box">🦅</div>
-                <div class="team-name">Blanquirojos<br>F.C.</div>
+            <div class="team">
+                <div class="team-name team-home">Blanquirojos<br>F.C.</div>
             </div>
-            
             <div class="vs-badge">VS</div>
-            
-            <div class="team team-away">
-                <div class="logo-box">🦁</div>
-                <div class="team-name">Lions De<br>Costa</div>
+            <div class="team">
+                <div class="team-name team-away">Lions De<br>Costa</div>
             </div>
         </div>
 
         <p class="description">
-            Wracamy do gry! Przed nami inauguracja nowego sezonu. Już w najbliższą sobotę zmierzymy się w domowym spotkaniu. Bądźcie z nami i głośno dopingujcie od pierwszej minuty!
+            Wracamy do gry! Przed nami inauguracja nowego sezonu. Już w najbliższą sobotę zmierzymy się w domowym spotkaniu. Bądźcie z nami!
         </p>
 
         <div class="divider"></div>
@@ -212,9 +210,24 @@
         </ul>
 
         <div class="footer-callout">
-            🔥 DO BOJU BLANQUIROJOS! 🔥
+            🔴⚪ DO BOJU BLANQUIROJOS! 🔴⚪
         </div>
     </div>
+
+    <!-- PRZYCISK POBIERANIA -->
+    <button class="download-btn" onclick="downloadImage()">📸 Pobierz jako Grafikę (PNG)</button>
+
+    <script>
+        function downloadImage() {
+            const card = document.getElementById('card-to-download');
+            html2canvas(card, { scale: 2 }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'mecz-blanquirojos.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
+    </script>
 
 </body>
 </html>
