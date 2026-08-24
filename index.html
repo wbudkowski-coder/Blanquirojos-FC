@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
 
 <meta charset="UTF-8">
@@ -16,12 +15,9 @@
 
 <style>
 
-/* =========================
-   KOLORY
-========================= */
-
 :root {
     --red: #8b1e2b;
+    --red-dark: #5f101b;
     --red-hover: #6e1620;
     --gold: #c2ab87;
     --gold-light: #d8c7a9;
@@ -31,11 +27,6 @@
     --light: #f4f4f6;
     --gray: #8c92a0;
 }
-
-
-/* =========================
-   RESET
-========================= */
 
 * {
     box-sizing: border-box;
@@ -58,7 +49,6 @@ a {
     color: inherit;
 }
 
-
 /* =========================
    HEADER
 ========================= */
@@ -66,45 +56,33 @@ a {
 header {
     background: var(--dark);
     color: white;
-
-    padding: 14px 25px;
-
+    padding: 10px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     border-bottom: 3px solid var(--gold);
-
     position: sticky;
     top: 0;
     z-index: 1000;
-
-    min-height: 82px;
 }
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 14px;
-
+    gap: 12px;
     flex-shrink: 0;
 }
 
 .logo-container {
-    width: 58px;
-    height: 58px;
-
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     overflow: hidden;
-
     border: 2px solid var(--gold);
     background: #111;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    flex-shrink: 0;
 }
 
 .logo-container img {
@@ -114,59 +92,67 @@ header {
 }
 
 .brand h1 {
-    font-size: 21px;
+    font-size: 20px;
     letter-spacing: 1px;
     white-space: nowrap;
 }
 
-
-/* =========================
-   HEADER RIGHT
-========================= */
+/* PRAWA CZĘŚĆ HEADERA */
 
 .header-right {
     display: flex;
     align-items: center;
-    gap: 12px;
-
+    gap: 18px;
     margin-top: 8px;
-
-    flex-shrink: 0;
 }
 
-.players-link {
+/* ZAKŁADKI */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
     color: white;
     text-decoration: none;
 
     font-size: 13px;
     font-weight: bold;
 
-    padding: 9px 13px;
+    padding: 8px 12px;
 
     border: 1px solid var(--gold);
     border-radius: 6px;
 
-    transition: .2s;
+    background: transparent;
 
-    white-space: nowrap;
+    transition: .2s;
 }
 
-.players-link:hover {
+.nav-button:hover {
     background: var(--red);
     color: var(--gold-light);
 }
 
+/* SOCIALE */
+
 .social-links {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 14px;
 }
 
 .social-links a {
     color: white;
-    font-size: 21px;
+    font-size: 20px;
     text-decoration: none;
-
     transition: .2s;
 }
 
@@ -174,13 +160,12 @@ header {
     color: var(--gold);
 }
 
-
 /* =========================
    HERO
 ========================= */
 
 .hero {
-    min-height: 540px;
+    min-height: 570px;
 
     display: flex;
     align-items: center;
@@ -188,31 +173,31 @@ header {
 
     text-align: center;
 
-    padding: 75px 20px 100px;
+    padding: 70px 20px;
 
     position: relative;
-    overflow: hidden;
 
     background:
         linear-gradient(
-            rgba(55, 0, 8, .70),
-            rgba(18, 20, 23, .90)
+            rgba(70, 5, 15, .72),
+            rgba(18, 20, 23, .94)
         ),
-        url("https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=1800&q=85")
+        url("https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1800&q=85")
         center center / cover no-repeat;
 }
 
+/* dodatkowa czerwona poświata */
+
 .hero::before {
     content: "";
-
     position: absolute;
     inset: 0;
 
     background:
         radial-gradient(
             circle at center,
-            rgba(139,30,43,.35),
-            transparent 60%
+            rgba(139,30,43,.30),
+            transparent 55%
         );
 
     pointer-events: none;
@@ -220,7 +205,6 @@ header {
 
 .hero-content {
     max-width: 900px;
-
     position: relative;
     z-index: 2;
 }
@@ -232,18 +216,17 @@ header {
     object-fit: cover;
 
     border-radius: 50%;
-
     border: 3px solid var(--gold);
 
-    margin-bottom: 24px;
+    margin-bottom: 25px;
 
     box-shadow:
-        0 0 0 8px rgba(194,171,135,.08),
-        0 15px 45px rgba(0,0,0,.65);
+        0 10px 35px rgba(0,0,0,.55),
+        0 0 0 8px rgba(194,171,135,.08);
 }
 
 .hero h2 {
-    font-size: clamp(42px, 8vw, 80px);
+    font-size: clamp(42px, 8vw, 82px);
 
     font-weight: 900;
 
@@ -254,7 +237,7 @@ header {
     color: white;
 
     text-shadow:
-        0 5px 20px rgba(0,0,0,.7);
+        0 5px 20px rgba(0,0,0,.6);
 }
 
 .hero p {
@@ -262,9 +245,9 @@ header {
 
     color: var(--gold-light);
 
-    margin: 18px 0 30px;
+    margin: 17px 0 30px;
 
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .hero-button {
@@ -285,19 +268,12 @@ header {
     border: 1px solid var(--gold);
 
     transition: .2s;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.3);
 }
 
 .hero-button:hover {
     background: var(--red-hover);
-
     color: var(--gold-light);
-
-    transform: translateY(-2px);
 }
-
 
 /* =========================
    NEXT MATCH
@@ -319,8 +295,7 @@ header {
 
     text-align: center;
 
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.15);
+    box-shadow: 0 12px 35px rgba(0,0,0,.18);
 
     border-top: 5px solid var(--red);
 }
@@ -353,6 +328,7 @@ header {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     gap: 25px;
@@ -360,35 +336,6 @@ header {
     font-size: 24px;
 
     font-weight: bold;
-}
-
-.team-box {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 12px;
-
-    font-weight: bold;
-}
-
-.team-logo {
-    width: 75px;
-    height: 75px;
-
-    object-fit: contain;
-
-    border-radius: 50%;
-
-    border: 2px solid var(--gold);
-
-    background: white;
-
-    padding: 5px;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.12);
 }
 
 .vs {
@@ -418,7 +365,6 @@ header {
 
     margin-right: 5px;
 }
-
 
 /* =========================
    GENERAL
@@ -452,13 +398,13 @@ section {
     display: block;
 
     width: 55px;
+
     height: 4px;
 
     background: var(--red);
 
     margin: 10px auto;
 }
-
 
 /* =========================
    SOCIAL MEDIA
@@ -508,7 +454,6 @@ section {
     color: var(--gold-light);
 }
 
-
 /* =========================
    SPONSORZY
 ========================= */
@@ -533,13 +478,13 @@ section {
     margin-bottom: 20px;
 }
 
-
 /* SPONSOR GŁÓWNY */
 
 .main-sponsor {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     margin: 10px auto 50px;
@@ -547,6 +492,7 @@ section {
 
 .main-sponsor img {
     max-width: 340px;
+
     max-height: 130px;
 
     object-fit: contain;
@@ -557,10 +503,8 @@ section {
 
     border-radius: 12px;
 
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.10);
+    box-shadow: 0 8px 25px rgba(0,0,0,.10);
 }
-
 
 /* PATRON MEDIALNY */
 
@@ -574,6 +518,7 @@ section {
 
 .media-sponsor img {
     max-width: 250px;
+
     max-height: 80px;
 
     object-fit: contain;
@@ -584,10 +529,8 @@ section {
 
     border-radius: 8px;
 
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.06);
+    box-shadow: 0 5px 15px rgba(0,0,0,.06);
 }
-
 
 /* PARTNERZY */
 
@@ -595,6 +538,7 @@ section {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     gap: 25px;
@@ -604,6 +548,7 @@ section {
 
 .partner-logos img {
     max-width: 160px;
+
     max-height: 70px;
 
     object-fit: contain;
@@ -614,10 +559,8 @@ section {
 
     border-radius: 8px;
 
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.06);
+    box-shadow: 0 5px 15px rgba(0,0,0,.06);
 }
-
 
 /* =========================
    FOOTER
@@ -647,92 +590,92 @@ footer p {
     margin-top: 5px;
 }
 
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 900px) {
-
-    .brand h1 {
-        font-size: 17px;
-    }
-
-    .header-right {
-        gap: 8px;
-    }
-
-    .players-link {
-        font-size: 11px;
-
-        padding: 8px 10px;
-    }
-
-    .social-links {
-        gap: 10px;
-    }
-
-    .social-links a {
-        font-size: 18px;
-    }
-}
-
-
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
 
     header {
-        padding: 10px 14px;
+        flex-wrap: wrap;
 
-        min-height: 68px;
+        justify-content: center;
+
+        gap: 8px;
+
+        padding: 10px 14px;
     }
 
     .brand {
-        gap: 9px;
-    }
+        width: 100%;
 
-    .brand h1 {
-        font-size: 13px;
-
-        letter-spacing: .3px;
-    }
-
-    .logo-container {
-        width: 44px;
-        height: 44px;
+        justify-content: center;
     }
 
     .header-right {
-        gap: 7px;
+        width: 100%;
 
-        margin-top: 10px;
+        justify-content: center;
+
+        margin-top: 2px;
+
+        gap: 12px;
     }
 
-    .players-link {
-        padding: 6px 8px;
+}
 
-        font-size: 9px;
+@media (max-width: 600px) {
+
+    header {
+        padding: 9px 10px;
     }
 
-    .social-links {
+    .brand {
         gap: 8px;
     }
 
+    .brand h1 {
+        font-size: 15px;
+    }
+
+    .logo-container {
+        width: 43px;
+        height: 43px;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .navigation {
+        gap: 5px;
+    }
+
+    .nav-button {
+        font-size: 10px;
+
+        padding: 7px 8px;
+
+        gap: 4px;
+    }
+
+    .social-links {
+        gap: 9px;
+    }
+
     .social-links a {
-        font-size: 16px;
+        font-size: 17px;
     }
 
     .hero {
-        min-height: 480px;
+        min-height: 460px;
 
-        padding: 55px 15px 90px;
+        padding: 50px 15px;
     }
 
     .hero-logo {
         width: 110px;
+
         height: 110px;
     }
 
@@ -748,6 +691,7 @@ footer p {
 
     .next-match {
         margin-left: 15px;
+
         margin-right: 15px;
 
         padding: 30px 18px;
@@ -756,20 +700,9 @@ footer p {
     .teams {
         flex-direction: column;
 
-        gap: 10px;
+        gap: 6px;
 
         font-size: 20px;
-    }
-
-    .team-box {
-        flex-direction: column;
-
-        gap: 6px;
-    }
-
-    .team-logo {
-        width: 65px;
-        height: 65px;
     }
 
     .vs {
@@ -782,66 +715,20 @@ footer p {
 
     .main-sponsor img {
         max-width: 280px;
+
         max-height: 110px;
     }
 
     .media-sponsor img {
         max-width: 210px;
+
         max-height: 70px;
     }
 
     .partner-logos img {
         max-width: 135px;
+
         max-height: 60px;
-    }
-}
-
-
-/* =========================
-   BARDZO MAŁE TELEFONY
-========================= */
-
-@media (max-width: 480px) {
-
-    header {
-        align-items: flex-start;
-    }
-
-    .brand h1 {
-        font-size: 11px;
-    }
-
-    .logo-container {
-        width: 39px;
-        height: 39px;
-    }
-
-    .header-right {
-        flex-direction: column;
-
-        align-items: flex-end;
-
-        gap: 5px;
-
-        margin-top: 2px;
-    }
-
-    .players-link {
-        font-size: 9px;
-
-        padding: 5px 8px;
-    }
-
-    .social-links {
-        gap: 7px;
-    }
-
-    .social-links a {
-        font-size: 14px;
-    }
-
-    .hero h2 {
-        font-size: 32px;
     }
 
 }
@@ -849,7 +736,6 @@ footer p {
 </style>
 
 </head>
-
 
 <body>
 
@@ -866,7 +752,7 @@ footer p {
 
             <img
                 src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
-                alt="Blanquirojos F.C. Logo">
+                alt="Logo Blanquirojos F.C.">
 
         </div>
 
@@ -879,37 +765,38 @@ footer p {
 
     <div class="header-right">
 
+        <!-- ZAKŁADKI -->
 
-        <!-- TABELA -->
+        <nav class="navigation">
 
-        <a
-            href="tabela.html"
-            class="players-link">
+            <a
+                href="zawodnicy.html"
+                class="nav-button">
 
-            TABELA
+                <i class="fas fa-users"></i>
+                ZAWODNICY
 
-        </a>
+            </a>
+
+            <a
+                href="tabela.html"
+                class="nav-button">
+
+                <i class="fas fa-table"></i>
+                TABELA
+
+            </a>
+
+        </nav>
 
 
-        <!-- ZAWODNICY -->
-
-        <a
-            href="zawodnicy.html"
-            class="players-link">
-
-            ZAWODNICY
-
-        </a>
-
-
-        <!-- SOCIAL MEDIA -->
+        <!-- SOCIALE -->
 
         <div class="social-links">
 
             <a
                 href="https://www.instagram.com/blanquirojos_costablanca/"
                 target="_blank"
-                rel="noopener"
                 aria-label="Instagram">
 
                 <i class="fab fa-instagram"></i>
@@ -920,7 +807,6 @@ footer p {
             <a
                 href="https://www.youtube.com/@blanquirojos"
                 target="_blank"
-                rel="noopener"
                 aria-label="YouTube">
 
                 <i class="fab fa-youtube"></i>
@@ -931,7 +817,6 @@ footer p {
             <a
                 href="https://www.tiktok.com/@blanquirojos_costablanca"
                 target="_blank"
-                rel="noopener"
                 aria-label="TikTok">
 
                 <i class="fab fa-tiktok"></i>
@@ -953,22 +838,18 @@ footer p {
 
     <div class="hero-content">
 
-
         <img
             class="hero-logo"
             src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
             alt="Blanquirojos F.C.">
 
-
         <h2>
             BLANQUIROJOS F.C.
         </h2>
 
-
         <p>
-            Más que un equipo
+            Więcej niż drużyna
         </p>
-
 
         <a
             href="#mecz"
@@ -978,82 +859,44 @@ footer p {
 
         </a>
 
-
     </div>
 
 </section>
 
 
 <!-- =========================
-     NAJBLIŻSZY MECZ
+     NEXT MATCH
 ========================= -->
 
 <div
     class="next-match"
     id="mecz">
 
-
     <span class="badge">
-
         LIGA FRATELO • TERCERA DIVISIÓN
-
     </span>
 
-
     <h2>
-
         NAJBLIŻSZY MECZ
-
     </h2>
-
 
     <div class="teams">
 
-
-        <!-- BLANQUIROJOS -->
-
-        <div class="team-box">
-
-            <img
-                class="team-logo"
-                src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
-                alt="Blanquirojos F.C.">
-
-
-            <span>
-                BLANQUIROJOS F.C.
-            </span>
-
-        </div>
-
+        <span>
+            BLANQUIROJOS F.C.
+        </span>
 
         <span class="vs">
             VS
         </span>
 
-
-        <!-- RYWAL -->
-
-        <div class="team-box">
-
-            <img
-                class="team-logo"
-                src="https://i.postimg.cc/sBx2xQCY/IMG-5872.jpg"
-                alt="Lions de Costa">
-
-
-            <span>
-                LIONS DE COSTA
-            </span>
-
-        </div>
-
+        <span>
+            LIONS DE COSTA
+        </span>
 
     </div>
 
-
     <div class="match-info">
-
 
         <span>
 
@@ -1081,15 +924,10 @@ footer p {
 
         </span>
 
-
     </div>
 
 </div>
 
-
-<!-- =========================
-     GŁÓWNA TREŚĆ
-========================= -->
 
 <div class="container">
 
@@ -1100,22 +938,16 @@ footer p {
 
 <section class="social-section">
 
-
     <h2 class="section-title">
-
         BLANQUIROJOS W SIECI
-
     </h2>
 
-
     <div class="social-buttons">
-
 
         <a
             class="social-button"
             href="https://www.instagram.com/blanquirojos_costablanca/"
-            target="_blank"
-            rel="noopener">
+            target="_blank">
 
             <i class="fab fa-instagram"></i>
 
@@ -1127,8 +959,7 @@ footer p {
         <a
             class="social-button"
             href="https://www.youtube.com/@blanquirojos"
-            target="_blank"
-            rel="noopener">
+            target="_blank">
 
             <i class="fab fa-youtube"></i>
 
@@ -1140,15 +971,13 @@ footer p {
         <a
             class="social-button"
             href="https://www.tiktok.com/@blanquirojos_costablanca"
-            target="_blank"
-            rel="noopener">
+            target="_blank">
 
             <i class="fab fa-tiktok"></i>
 
             TikTok
 
         </a>
-
 
     </div>
 
@@ -1165,11 +994,8 @@ footer p {
     <!-- SPONSOR GŁÓWNY -->
 
     <div class="sponsors-title">
-
         Sponsor główny
-
     </div>
-
 
     <div class="main-sponsor">
 
@@ -1183,11 +1009,8 @@ footer p {
     <!-- PATRON MEDIALNY -->
 
     <div class="media-title">
-
         Patron medialny
-
     </div>
-
 
     <div class="media-sponsor">
 
@@ -1201,24 +1024,18 @@ footer p {
     <!-- PARTNERZY -->
 
     <div class="partner-title">
-
         Partnerzy
-
     </div>
 
-
     <div class="partner-logos">
-
 
         <img
             src="https://i.postimg.cc/vDpm0ZF6/logotyp-Kids-Zone.png"
             alt="KidsZone">
 
-
         <img
             src="https://i.postimg.cc/Cz2kwgq7/4f184fdf-0cae-4d6b-a028-5c82d30dd9c2.jpg"
             alt="Partner Blanquirojos F.C.">
-
 
     </div>
 
@@ -1234,25 +1051,20 @@ footer p {
 
 <footer>
 
-
     <strong>
         BLANQUIROJOS F.C.
     </strong>
 
-
     <p>
-        Costa Blanca • España • Temporada 2026/27
+        Costa Blanca • Hiszpania • Sezon 2026/27
     </p>
-
 
     <p>
         © 2026 Blanquirojos F.C.
     </p>
 
-
 </footer>
 
 
 </body>
-
 </html>
