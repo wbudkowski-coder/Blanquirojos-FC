@@ -111,6 +111,7 @@
             transform: translateY(-2px);
         }
 
+
         /* =========================
            HERO
         ========================= */
@@ -177,6 +178,7 @@
             color: var(--gold-light);
         }
 
+
         /* =========================
            NEXT MATCH
         ========================= */
@@ -241,6 +243,7 @@
             margin-right: 5px;
         }
 
+
         /* =========================
            GENERAL
         ========================= */
@@ -270,6 +273,7 @@
             background: var(--red);
             margin: 10px auto;
         }
+
 
         /* =========================
            SQUAD
@@ -315,6 +319,7 @@
             font-size: 13px;
         }
 
+
         /* =========================
            TABLE
         ========================= */
@@ -339,6 +344,7 @@
         .table-box p {
             color: var(--gray);
         }
+
 
         /* =========================
            SOCIAL
@@ -379,39 +385,103 @@
             color: var(--gold-light);
         }
 
+
         /* =========================
            SPONSORS
         ========================= */
 
         .sponsors {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
-        .sponsors-title {
+        .sponsors-title,
+        .media-title,
+        .partner-title {
             color: var(--gray);
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
-        .sponsor-logos {
+        /* SPONSOR GŁÓWNY */
+
+        .main-sponsor {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 35px;
-            flex-wrap: wrap;
+            margin: 10px auto 50px;
         }
 
-        .sponsor-logo {
-            max-width: 180px;
-            max-height: 70px;
+        .main-sponsor img {
+            max-width: 340px;
+            max-height: 130px;
             object-fit: contain;
+
             background: white;
+
+            padding: 15px 25px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.10);
+        }
+
+
+        /* PATRON MEDIALNY */
+
+        .media-title {
+            margin-bottom: 15px;
+        }
+
+        .media-sponsor {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 45px;
+        }
+
+        .media-sponsor img {
+            max-width: 250px;
+            max-height: 80px;
+
+            object-fit: contain;
+
+            background: white;
+
+            padding: 10px 18px;
+
+            border-radius: 8px;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,.06);
+        }
+
+
+        /* PARTNER */
+
+        .partner-title {
+            margin-bottom: 15px;
+        }
+
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .partner-logos img {
+            max-width: 160px;
+            max-height: 70px;
+
+            object-fit: contain;
+
+            background: white;
+
             padding: 10px 15px;
+
             border-radius: 8px;
         }
+
 
         /* =========================
            FOOTER
@@ -434,6 +504,7 @@
             font-size: 14px;
             margin-top: 5px;
         }
+
 
         /* =========================
            MOBILE
@@ -530,12 +601,18 @@
                 padding: 25px 15px;
             }
 
-            .sponsor-logos {
-                gap: 15px;
+            .main-sponsor img {
+                max-width: 280px;
+                max-height: 110px;
             }
 
-            .sponsor-logo {
-                max-width: 140px;
+            .media-sponsor img {
+                max-width: 210px;
+                max-height: 70px;
+            }
+
+            .partner-logos img {
+                max-width: 135px;
                 max-height: 60px;
             }
         }
@@ -543,7 +620,9 @@
     </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      HEADER
@@ -615,9 +694,13 @@
             src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
             alt="Blanquirojos F.C.">
 
-        <h2>BLANQUIROJOS F.C.</h2>
+        <h2>
+            BLANQUIROJOS F.C.
+        </h2>
 
-        <p>Más que un equipo</p>
+        <p>
+            Más que un equipo
+        </p>
 
         <a href="#mecz" class="hero-button">
             NAJBLIŻSZY MECZ
@@ -638,15 +721,23 @@
         LIGA FRATELO • TERCERA DIVISIÓN
     </span>
 
-    <h2>NAJBLIŻSZY MECZ</h2>
+    <h2>
+        NAJBLIŻSZY MECZ
+    </h2>
 
     <div class="teams">
 
-        <span>BLANQUIROJOS F.C.</span>
+        <span>
+            BLANQUIROJOS F.C.
+        </span>
 
-        <span class="vs">VS</span>
+        <span class="vs">
+            VS
+        </span>
 
-        <span>LIONS DE COSTA</span>
+        <span>
+            LIONS DE COSTA
+        </span>
 
     </div>
 
@@ -673,14 +764,12 @@
 </div>
 
 
-<!-- =========================
-     MAIN CONTENT
-========================= -->
-
 <div class="container">
 
 
-<!-- KADRA -->
+<!-- =========================
+     KADRA
+========================= -->
 
 <section id="druzyna">
 
@@ -698,13 +787,11 @@
             <div class="role">Zawodnik</div>
         </div>
 
-
         <div class="player-card">
             <div class="number">#2</div>
             <div class="player-name">Piotr Tokaj</div>
             <div class="role">Zawodnik</div>
         </div>
-
 
         <div class="player-card">
             <div class="number">#3</div>
@@ -712,13 +799,11 @@
             <div class="role">Zawodnik</div>
         </div>
 
-
         <div class="player-card">
             <div class="number">#4</div>
             <div class="player-name">Artur K.</div>
             <div class="role">Zawodnik</div>
         </div>
-
 
         <div class="player-card">
             <div class="number">#5</div>
@@ -726,13 +811,11 @@
             <div class="role">Zawodnik</div>
         </div>
 
-
         <div class="player-card">
             <div class="number">#6</div>
             <div class="player-name">Igor Kępa</div>
             <div class="role">Zawodnik</div>
         </div>
-
 
         <div class="player-card">
             <div class="number">#7</div>
@@ -740,13 +823,11 @@
             <div class="role">Zawodnik</div>
         </div>
 
-
         <div class="player-card">
             <div class="number">#8</div>
             <div class="player-name">Adam Hejducki</div>
             <div class="role">Zawodnik</div>
         </div>
-
 
         <div class="player-card">
             <div class="number">#9</div>
@@ -754,13 +835,11 @@
             <div class="role">Kapitan / Trener</div>
         </div>
 
-
         <div class="player-card">
             <div class="number">#10</div>
             <div class="player-name">Maciej Pawlicki</div>
             <div class="role">Zawodnik</div>
         </div>
-
 
         <div class="player-card">
             <div class="number">#11</div>
@@ -768,13 +847,11 @@
             <div class="role">Zawodnik</div>
         </div>
 
-
         <div class="player-card">
             <div class="number">#14</div>
             <div class="player-name">Mindaugas Vilimas</div>
             <div class="role">Zawodnik</div>
         </div>
-
 
         <div class="player-card">
             <div class="number">#15</div>
@@ -782,13 +859,11 @@
             <div class="role">Zawodnik</div>
         </div>
 
-
         <div class="player-card">
             <div class="number">#17</div>
             <div class="player-name">Nerijus</div>
             <div class="role">Zawodnik</div>
         </div>
-
 
         <div class="player-card">
             <div class="number">#18</div>
@@ -796,13 +871,11 @@
             <div class="role">Zawodnik</div>
         </div>
 
-
         <div class="player-card">
             <div class="number">#19</div>
             <div class="player-name">Marcin Kaproń</div>
             <div class="role">Zawodnik</div>
         </div>
-
 
         <div class="player-card">
             <div class="number">#20</div>
@@ -810,13 +883,11 @@
             <div class="role">Zawodnik</div>
         </div>
 
-
         <div class="player-card">
             <div class="number">#21</div>
             <div class="player-name">Michał Osomański</div>
             <div class="role">Zawodnik</div>
         </div>
-
 
         <div class="player-card">
             <div class="number">#25</div>
@@ -824,13 +895,11 @@
             <div class="role">Zawodnik</div>
         </div>
 
-
         <div class="player-card">
             <div class="number">#26</div>
             <div class="player-name">Szymon Szcześniak</div>
             <div class="role">Zawodnik</div>
         </div>
-
 
         <div class="player-card">
             <div class="number">#44</div>
@@ -838,13 +907,11 @@
             <div class="role">Zawodnik</div>
         </div>
 
-
         <div class="player-card">
             <div class="number">#47</div>
             <div class="player-name">Michał Wycisk</div>
             <div class="role">Zawodnik</div>
         </div>
-
 
         <div class="player-card">
             <div class="number">#99</div>
@@ -858,7 +925,9 @@
 </section>
 
 
-<!-- TABELA -->
+<!-- =========================
+     TABELA
+========================= -->
 
 <section>
 
@@ -870,7 +939,9 @@
 
         <i class="fas fa-trophy fa-2x"></i>
 
-        <h3>SEZON 2026/27</h3>
+        <h3>
+            SEZON 2026/27
+        </h3>
 
         <p>
             Tabela ligowa i wyniki meczów pojawią się tutaj.
@@ -881,7 +952,9 @@
 </section>
 
 
-<!-- SOCIAL MEDIA -->
+<!-- =========================
+     SOCIAL MEDIA
+========================= -->
 
 <section class="social-section">
 
@@ -929,31 +1002,60 @@
 </section>
 
 
-<!-- SPONSORZY -->
+<!-- =========================
+     SPONSORZY
+========================= -->
 
 <section class="sponsors">
 
+
+    <!-- SPONSOR GŁÓWNY -->
+
     <div class="sponsors-title">
-        Partnerzy i sponsorzy
+        Sponsor główny
     </div>
 
 
-    <div class="sponsor-logos">
-
+    <div class="main-sponsor">
 
         <img
-            class="sponsor-logo"
+            src="https://i.postimg.cc/NLW0djqm/LOGO-copia(1)(2)(1).png"
+            alt="Sponsor główny Blanquirojos F.C.">
+
+    </div>
+
+
+    <!-- PATRON MEDIALNY -->
+
+    <div class="media-title">
+        Patron medialny
+    </div>
+
+
+    <div class="media-sponsor">
+
+        <img
+            src="https://i.postimg.cc/CdZ1Cftb/PC-LOGO-2025.png"
+            alt="Polska Costa - Patron Medialny">
+
+    </div>
+
+
+    <!-- PARTNER -->
+
+    <div class="partner-title">
+        Partner
+    </div>
+
+
+    <div class="partner-logos">
+
+        <img
             src="https://i.postimg.cc/vDpm0ZF6/logotyp-Kids-Zone.png"
             alt="KidsZone">
 
-
-        <img
-            class="sponsor-logo"
-            src="https://i.postimg.cc/CdZ1Cftb/PC-LOGO-2025.png"
-            alt="Polska Costa">
-
-
     </div>
+
 
 </section>
 
