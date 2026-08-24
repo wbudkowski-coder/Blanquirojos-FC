@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zapowiedź Meczu - Blanquirojos F.C. vs Lions De Costa</title>
-    <!-- Biblioteka do automatycznego pobierania grafiki -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <title>Blanquirojos F.C. - Match Center</title>
     <style>
         :root {
             --bg-dark: #0b0e14;
             --card-bg: #12161f;
+            --card-inner: #1a202c;
             --red-accent: #dc2626;
-            --red-glow: rgba(220, 38, 38, 0.4);
+            --red-glow: rgba(220, 38, 38, 0.3);
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --border-color: #262c3a;
@@ -27,207 +26,402 @@
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             padding: 20px;
+            display: flex;
+            justify-content: center;
         }
 
-        /* Karta do pobrania */
-        .match-card {
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* NAGŁÓWEK Z MECZEM */
+        .match-header {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-top: 5px solid var(--red-accent);
             border-radius: 16px;
-            width: 100%;
-            max-width: 500px;
-            padding: 32px 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            padding: 30px;
             text-align: center;
-            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
 
-        .header-tag {
+        .badge-preview {
             display: inline-block;
-            background: linear-gradient(90deg, #b91c1c, var(--red-accent));
-            color: #ffffff;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            padding: 6px 16px;
+            background: var(--red-accent);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 4px 14px;
             border-radius: 20px;
             text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-
-        .teams-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-            padding: 0 10px;
-        }
-
-        .team {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .team-name {
-            font-size: 1.15rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            line-height: 1.2;
-        }
-
-        .team-home { color: #ffffff; }
-        .team-away { color: #e5e7eb; }
-
-        .vs-badge {
-            font-size: 1.6rem;
-            font-weight: 900;
-            font-style: italic;
-            color: var(--red-accent);
-            padding: 0 15px;
-        }
-
-        .divider {
-            height: 1px;
-            background: var(--border-color);
-            margin: 20px 0;
-        }
-
-        .description {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.5;
+            letter-spacing: 1px;
             margin-bottom: 20px;
         }
 
-        .details-list {
-            list-style: none;
+        .teams-matchup {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .team-box {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            text-align: left;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 16px 20px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .details-item {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            font-size: 0.9rem;
+            gap: 10px;
+            flex: 1;
+            min-width: 180px;
         }
 
-        .details-label {
-            color: var(--text-muted);
-            font-weight: 500;
+        .team-logo-placeholder {
+            width: 90px;
+            height: 90px;
+            background: var(--card-inner);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
         }
 
-        .details-value {
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .footer-callout {
-            margin-top: 24px;
-            font-size: 1.1rem;
+        .team-title {
+            font-size: 1.4rem;
             font-weight: 800;
-            color: var(--red-accent);
-            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        /* Przycisk pobierania */
-        .download-btn {
-            margin-top: 25px;
-            background: var(--red-accent);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 4px 15px var(--red-glow);
+        .vs-divider {
+            font-size: 2rem;
+            font-weight: 900;
+            font-style: italic;
+            color: var(--red-accent);
         }
 
-        .download-btn:hover {
-            background: #b91c1c;
-            transform: translateY(-2px);
+        .match-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            background: var(--card-inner);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .info-val {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        /* UKŁAD DWUKOLUMNOWY */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .section-title span {
+            color: var(--red-accent);
+        }
+
+        /* SKŁAD DRUŻYNY */
+        .squad-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .squad-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--card-inner);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .player-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .player-number {
+            background: var(--red-accent);
+            color: white;
+            font-weight: 800;
+            font-size: 0.85rem;
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .player-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .player-pos {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* TABELA LIGOWA */
+        .league-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .league-table th {
+            color: var(--text-muted);
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .league-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .league-table tr.highlight {
+            background: rgba(220, 38, 38, 0.15);
+            font-weight: 700;
+        }
+
+        .league-table tr.highlight td:first-child {
+            border-left: 3px solid var(--red-accent);
+        }
+
+        /* SPONSORZY */
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .sponsor-box {
+            background: var(--card-inner);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-    <!-- KARTA MECZOWA (TO ZOSTANIE ZAPISANE JAKO OBRAZEK) -->
-    <div class="match-card" id="card-to-download">
-        <span class="header-tag">Pre-Match Preview</span>
-        
-        <div class="teams-container">
-            <div class="team">
-                <div class="team-name team-home">Blanquirojos<br>F.C.</div>
+    <div class="container">
+
+        <!-- KARTA MECZOWA (MAIN PREVIEW) -->
+        <header class="match-header">
+            <span class="badge-preview">Pre-Match Preview</span>
+            
+            <div class="teams-matchup">
+                <div class="team-box">
+                    <div class="team-logo-placeholder">🦅</div>
+                    <div class="team-title">Blanquirojos F.C.</div>
+                </div>
+                
+                <div class="vs-divider">VS</div>
+                
+                <div class="team-box">
+                    <div class="team-logo-placeholder">🦁</div>
+                    <div class="team-title">Lions De Costa</div>
+                </div>
             </div>
-            <div class="vs-badge">VS</div>
-            <div class="team">
-                <div class="team-name team-away">Lions De<br>Costa</div>
+
+            <div class="match-info-grid">
+                <div class="info-item">
+                    <span class="info-label">Data</span>
+                    <span class="info-val">12.09.2026</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Godzina</span>
+                    <span class="info-val">21:00</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Rozgrywki</span>
+                    <span class="info-val">3º Division</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Runda</span>
+                    <span class="info-val">Jornada 1</span>
+                </div>
             </div>
+        </header>
+
+        <!-- SEKCJA DWUKOLUMNOWA: SKŁAD + TABELA -->
+        <div class="main-content">
+            
+            <!-- PRZEWIDYWANY SKŁAD -->
+            <div class="section-card">
+                <div class="section-title"><span>📋</span> Przewidywany Skład</div>
+                <div class="squad-list">
+                    <div class="squad-item">
+                        <div class="player-info">
+                            <span class="player-number">1</span>
+                            <span class="player-name">M. Silva</span>
+                        </div>
+                        <span class="player-pos">BR</span>
+                    </div>
+                    <div class="squad-item">
+                        <div class="player-info">
+                            <span class="player-number">4</span>
+                            <span class="player-name">R. Torres</span>
+                        </div>
+                        <span class="player-pos">OBO</span>
+                    </div>
+                    <div class="squad-item">
+                        <div class="player-info">
+                            <span class="player-number">5</span>
+                            <span class="player-name">J. Gomez</span>
+                        </div>
+                        <span class="player-pos">OBO</span>
+                    </div>
+                    <div class="squad-item">
+                        <div class="player-info">
+                            <span class="player-number">8</span>
+                            <span class="player-name">A. Fernandez</span>
+                        </div>
+                        <span class="player-pos">POM</span>
+                    </div>
+                    <div class="squad-item">
+                        <div class="player-info">
+                            <span class="player-number">10</span>
+                            <span class="player-name">C. Morales</span>
+                        </div>
+                        <span class="player-pos">POM</span>
+                    </div>
+                    <div class="squad-item">
+                        <div class="player-info">
+                            <span class="player-number">9</span>
+                            <span class="player-name">D. Alvarez</span>
+                        </div>
+                        <span class="player-pos">NAP</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABELA LIGOWA -->
+            <div class="section-card">
+                <div class="section-title"><span>🏆</span> Tabela 3º Division</div>
+                <table class="league-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Drużyna</th>
+                            <th>M</th>
+                            <th>Pkt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight">
+                            <td>1</td>
+                            <td>Blanquirojos F.C.</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Lions De Costa</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Atletico Santos</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Costa Unidos</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Real Victoria</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
 
-        <p class="description">
-            Wracamy do gry! Przed nami inauguracja nowego sezonu. Już w najbliższą sobotę zmierzymy się w domowym spotkaniu. Bądźcie z nami!
-        </p>
+        <!-- SPONSORZY -->
+        <footer class="section-card">
+            <div class="section-title"><span>🤝</span> Sponsorzy Tytularni</div>
+            <div class="sponsors-grid">
+                <div class="sponsor-box">SPONSOR 1</div>
+                <div class="sponsor-box">SPONSOR 2</div>
+                <div class="sponsor-box">SPONSOR 3</div>
+                <div class="sponsor-box">SPONSOR 4</div>
+            </div>
+        </footer>
 
-        <div class="divider"></div>
-
-        <ul class="details-list">
-            <li class="details-item">
-                <span class="details-label">🗓️ Data</span>
-                <span class="details-value">12.09.2026 r. (Sobota)</span>
-            </li>
-            <li class="details-item">
-                <span class="details-label">⏰ Godzina</span>
-                <span class="details-value">21:00</span>
-            </li>
-            <li class="details-item">
-                <span class="details-label">🏆 Rozgrywki</span>
-                <span class="details-value">3º Division · Apertura</span>
-            </li>
-            <li class="details-item">
-                <span class="details-label">🥊 Runda</span>
-                <span class="details-value">Jornada 1</span>
-            </li>
-        </ul>
-
-        <div class="footer-callout">
-            🔴⚪ DO BOJU BLANQUIROJOS! 🔴⚪
-        </div>
     </div>
-
-    <!-- PRZYCISK POBIERANIA -->
-    <button class="download-btn" onclick="downloadImage()">📸 Pobierz jako Grafikę (PNG)</button>
-
-    <script>
-        function downloadImage() {
-            const card = document.getElementById('card-to-download');
-            html2canvas(card, { scale: 2 }).then(canvas => {
-                const link = document.createElement('a');
-                link.download = 'mecz-blanquirojos.png';
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-            });
-        }
-    </script>
 
 </body>
 </html>
