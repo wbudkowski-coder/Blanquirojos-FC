@@ -8,7 +8,7 @@
 <title>Blanquirojos F.C. | Costa Blanca</title>
 
 <meta name="description"
-      content="Blanquirojos F.C. – polski klub piłkarski na Costa Blanca. Temporada 2026/27.">
+      content="Blanquirojos F.C. – polski klub piłkarski na Costa Blanca. Sezon 2026/27.">
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,13 +17,14 @@
 
 :root {
     --red: #8b1e2b;
-    --red-dark: #64131e;
+    --red-dark: #5f111c;
+    --red-hover: #6e1620;
     --gold: #c2ab87;
-    --gold-light: #e3d4bb;
-    --dark: #101216;
-    --dark-card: #181b21;
+    --gold-light: #d8c7a9;
+    --dark: #121417;
+    --dark-card: #1a1d24;
     --white: #ffffff;
-    --light: #f3f3f5;
+    --light: #f4f4f6;
     --gray: #8c92a0;
 }
 
@@ -53,9 +54,9 @@ a {
 ========================= */
 
 header {
-    background: rgba(16,18,22,.97);
+    background: rgba(18,20,23,.98);
     color: white;
-    padding: 11px 25px;
+    padding: 12px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,7 +64,6 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(8px);
 }
 
 .brand {
@@ -141,27 +141,26 @@ header {
 ========================= */
 
 .hero {
-    min-height: 600px;
+    min-height: 590px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 70px 20px;
-    position: relative;
-    overflow: hidden;
 
     background:
         linear-gradient(
-            135deg,
-            rgba(10,12,15,.94),
-            rgba(80,16,27,.78),
-            rgba(10,12,15,.94)
+            rgba(70, 5, 15, .72),
+            rgba(10, 10, 12, .90)
         ),
-        url("https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=2000&q=90")
-        center/cover;
+        url("https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=2000&q=90")
+        center/cover no-repeat;
+
+    position: relative;
+    overflow: hidden;
 }
 
-.hero::before {
+.hero::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -169,33 +168,17 @@ header {
     background:
         radial-gradient(
             circle at center,
-            rgba(194,171,135,.16),
-            transparent 45%
+            rgba(139,30,43,.20),
+            transparent 60%
         );
 
     pointer-events: none;
 }
 
-.hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-
-    background: linear-gradient(
-        transparent,
-        var(--light)
-    );
-
-    opacity: .35;
-}
-
 .hero-content {
+    max-width: 950px;
     position: relative;
     z-index: 2;
-    max-width: 950px;
 }
 
 .hero-logo {
@@ -203,34 +186,29 @@ header {
     height: 155px;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid var(--gold);
+    border: 4px solid var(--gold);
     margin-bottom: 25px;
     box-shadow:
-        0 15px 45px rgba(0,0,0,.55),
-        0 0 0 8px rgba(194,171,135,.08);
+        0 0 0 8px rgba(255,255,255,.05),
+        0 15px 45px rgba(0,0,0,.65);
 }
 
 .hero h2 {
     font-size: clamp(42px, 8vw, 82px);
     font-weight: 900;
-    letter-spacing: 4px;
-    line-height: 1.02;
+    letter-spacing: 3px;
+    line-height: 1.05;
     color: white;
-    text-shadow: 0 5px 25px rgba(0,0,0,.6);
+    text-shadow: 0 5px 25px rgba(0,0,0,.7);
 }
 
-.hero-tagline {
-    font-size: 25px;
-    color: var(--gold-light);
-    margin: 18px 0 8px;
+.hero p {
+    font-size: 24px;
     font-weight: bold;
+    color: var(--gold-light);
+    margin: 18px 0 32px;
     letter-spacing: 2px;
-}
-
-.hero-location {
-    color: rgba(255,255,255,.75);
-    font-size: 15px;
-    margin-bottom: 30px;
+    text-transform: uppercase;
 }
 
 .hero-button {
@@ -243,10 +221,11 @@ header {
     font-weight: bold;
     border: 1px solid var(--gold);
     transition: .2s;
+    box-shadow: 0 8px 25px rgba(0,0,0,.35);
 }
 
 .hero-button:hover {
-    background: var(--red-dark);
+    background: var(--red-hover);
     color: var(--gold-light);
     transform: translateY(-2px);
 }
@@ -261,12 +240,13 @@ header {
     position: relative;
     z-index: 10;
 
-    background: rgba(255,255,255,.98);
-    border-radius: 18px;
-    padding: 38px 25px;
+    background: white;
+    border-radius: 17px;
+    padding: 35px 25px;
+
     text-align: center;
 
-    box-shadow: 0 15px 45px rgba(0,0,0,.18);
+    box-shadow: 0 15px 40px rgba(0,0,0,.18);
     border-top: 5px solid var(--red);
 }
 
@@ -275,17 +255,16 @@ header {
     background: var(--red);
     color: var(--gold-light);
     border: 1px solid var(--gold);
-    padding: 6px 16px;
+    padding: 6px 15px;
     border-radius: 30px;
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 15px;
-    letter-spacing: .5px;
 }
 
 .next-match h2 {
-    font-size: 28px;
     margin-bottom: 25px;
+    font-size: 28px;
 }
 
 .match-teams {
@@ -300,42 +279,88 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    min-width: 150px;
+    min-width: 160px;
 }
 
-.match-team img {
-    width: 85px;
-    height: 85px;
-    object-fit: cover;
+.team-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
     border-radius: 50%;
-    border: 2px solid var(--gold);
-    box-shadow: 0 7px 20px rgba(0,0,0,.15);
 }
 
 .team-name {
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 900;
 }
 
 .vs {
     color: var(--red);
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 900;
 }
 
 .match-info {
-    margin-top: 28px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
-    gap: 28px;
+    gap: 25px;
     flex-wrap: wrap;
     color: var(--gray);
-    font-size: 15px;
 }
 
 .match-info i {
     color: var(--red);
-    margin-right: 6px;
+    margin-right: 5px;
+}
+
+/* =========================
+   QUICK LINKS
+========================= */
+
+.quick-section {
+    margin-bottom: 80px;
+}
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.quick-card {
+    background: var(--dark-card);
+    color: white;
+    text-decoration: none;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(194,171,135,.25);
+    transition: .2s;
+}
+
+.quick-card:hover {
+    transform: translateY(-4px);
+    background: var(--red);
+    border-color: var(--gold);
+}
+
+.quick-card i {
+    font-size: 35px;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.quick-card h3 {
+    font-size: 20px;
+}
+
+.quick-card p {
+    color: var(--gold-light);
+    font-size: 13px;
+    margin-top: 5px;
 }
 
 /* =========================
@@ -366,80 +391,6 @@ section {
     height: 4px;
     background: var(--red);
     margin: 10px auto;
-}
-
-/* =========================
-   ABOUT
-========================= */
-
-.about {
-    max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-.about-box {
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 7px 25px rgba(0,0,0,.07);
-    border-left: 4px solid var(--red);
-    border-right: 4px solid var(--gold);
-}
-
-.about-box h3 {
-    font-size: 25px;
-    margin-bottom: 15px;
-}
-
-.about-box p {
-    color: #555b66;
-    font-size: 16px;
-}
-
-/* =========================
-   QUICK LINKS
-========================= */
-
-.quick-links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 850px;
-    margin: auto;
-}
-
-.quick-card {
-    background: var(--dark-card);
-    color: white;
-    padding: 28px 20px;
-    text-align: center;
-    border-radius: 12px;
-    text-decoration: none;
-    border: 1px solid rgba(194,171,135,.35);
-    transition: .2s;
-}
-
-.quick-card:hover {
-    transform: translateY(-4px);
-    background: var(--red);
-}
-
-.quick-card i {
-    color: var(--gold);
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-.quick-card h3 {
-    font-size: 19px;
-}
-
-.quick-card p {
-    color: var(--gold-light);
-    font-size: 13px;
-    margin-top: 5px;
 }
 
 /* =========================
@@ -477,12 +428,13 @@ section {
 }
 
 /* =========================
-   SPONSORS
+   SPONSORZY
 ========================= */
 
 .sponsors {
     text-align: center;
     margin-top: 30px;
+    padding-top: 20px;
 }
 
 .sponsors-title,
@@ -494,6 +446,8 @@ section {
     letter-spacing: 2px;
     margin-bottom: 20px;
 }
+
+/* SPONSOR GŁÓWNY */
 
 .main-sponsor {
     display: flex;
@@ -512,6 +466,8 @@ section {
     box-shadow: 0 8px 25px rgba(0,0,0,.10);
 }
 
+/* PATRON MEDIALNY */
+
 .media-sponsor {
     display: flex;
     justify-content: center;
@@ -527,6 +483,8 @@ section {
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,.06);
 }
+
+/* PARTNERZY */
 
 .partner-logos {
     display: flex;
@@ -575,20 +533,20 @@ footer p {
 @media (max-width: 700px) {
 
     header {
-        padding: 9px 12px;
+        padding: 10px 14px;
     }
 
     .brand {
-        gap: 8px;
+        gap: 9px;
     }
 
     .brand h1 {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .logo-container {
-        width: 44px;
-        height: 44px;
+        width: 45px;
+        height: 45px;
     }
 
     .header-right {
@@ -606,7 +564,7 @@ footer p {
     }
 
     .social-links a {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .hero {
@@ -620,22 +578,18 @@ footer p {
     }
 
     .hero h2 {
-        font-size: 37px;
+        font-size: 38px;
         letter-spacing: 1px;
     }
 
-    .hero-tagline {
-        font-size: 20px;
-    }
-
-    .hero-location {
-        font-size: 13px;
+    .hero p {
+        font-size: 17px;
     }
 
     .next-match {
         margin-left: 15px;
         margin-right: 15px;
-        padding: 30px 15px;
+        padding: 28px 15px;
     }
 
     .match-teams {
@@ -643,12 +597,12 @@ footer p {
     }
 
     .match-team {
-        min-width: 100px;
+        min-width: 110px;
     }
 
-    .match-team img {
-        width: 65px;
-        height: 65px;
+    .team-logo {
+        width: 70px;
+        height: 70px;
     }
 
     .team-name {
@@ -659,21 +613,12 @@ footer p {
         font-size: 17px;
     }
 
-    .match-info {
-        gap: 12px;
-        font-size: 13px;
+    .quick-grid {
+        grid-template-columns: 1fr;
     }
 
     .section-title {
         font-size: 25px;
-    }
-
-    .about-box {
-        padding: 25px 18px;
-    }
-
-    .quick-links {
-        grid-template-columns: 1fr;
     }
 
     .main-sponsor img {
@@ -719,7 +664,6 @@ footer p {
 
     </div>
 
-
     <div class="header-right">
 
         <a href="zawodnicy.html" class="players-link">
@@ -736,21 +680,27 @@ footer p {
                 href="https://www.instagram.com/blanquirojos_costablanca/"
                 target="_blank"
                 aria-label="Instagram">
+
                 <i class="fab fa-instagram"></i>
+
             </a>
 
             <a
                 href="https://www.youtube.com/@blanquirojos"
                 target="_blank"
                 aria-label="YouTube">
+
                 <i class="fab fa-youtube"></i>
+
             </a>
 
             <a
                 href="https://www.tiktok.com/@blanquirojos_costablanca"
                 target="_blank"
                 aria-label="TikTok">
+
                 <i class="fab fa-tiktok"></i>
+
             </a>
 
         </div>
@@ -777,13 +727,9 @@ footer p {
             BLANQUIROJOS F.C.
         </h2>
 
-        <div class="hero-tagline">
-            MÁS QUE UN EQUIPO
-        </div>
-
-        <div class="hero-location">
-            COSTA BLANCA • ESPAÑA • TEMPORADA 2026/27
-        </div>
+        <p>
+            Więcej niż drużyna
+        </p>
 
         <a href="#mecz" class="hero-button">
             NAJBLIŻSZY MECZ
@@ -813,6 +759,7 @@ footer p {
         <div class="match-team">
 
             <img
+                class="team-logo"
                 src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
                 alt="Blanquirojos F.C.">
 
@@ -831,6 +778,7 @@ footer p {
         <div class="match-team">
 
             <img
+                class="team-logo"
                 src="https://i.postimg.cc/sBx2xQCY/IMG-5872.jpg"
                 alt="Lions de Costa">
 
@@ -869,48 +817,16 @@ footer p {
 
 
 <!-- =========================
-     O KLUBIE
+     SZYBKIE LINKI
 ========================= -->
 
-<section class="about">
+<section class="quick-section">
 
     <h2 class="section-title">
-        O KLUBIE
+        BLANQUIROJOS F.C.
     </h2>
 
-    <div class="about-box">
-
-        <h3>
-            MÁS QUE UN EQUIPO
-        </h3>
-
-        <p>
-            Blanquirojos F.C. to polski klub piłkarski działający
-            na Costa Blanca. Łączymy sport, ambicję i polską
-            społeczność w Hiszpanii.
-        </p>
-
-        <p style="margin-top:12px;">
-            Sezon 2026/27 to początek kolejnego rozdziału
-            w historii naszego zespołu.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     SZYBKIE PRZEJŚCIA
-========================= -->
-
-<section>
-
-    <h2 class="section-title">
-        BLANQUIROJOS
-    </h2>
-
-    <div class="quick-links">
+    <div class="quick-grid">
 
         <a href="zawodnicy.html" class="quick-card">
 
@@ -921,7 +837,7 @@ footer p {
             </h3>
 
             <p>
-                Poznaj zawodników Blanquirojos F.C.
+                Poznaj naszych zawodników
             </p>
 
         </a>
@@ -936,7 +852,7 @@ footer p {
             </h3>
 
             <p>
-                Aktualna sytuacja w lidze.
+                Aktualna sytuacja w lidze
             </p>
 
         </a>
@@ -1060,7 +976,7 @@ footer p {
     </strong>
 
     <p>
-        Costa Blanca • España • Temporada 2026/27
+        Costa Blanca • Hiszpania • Sezon 2026/27
     </p>
 
     <p>
