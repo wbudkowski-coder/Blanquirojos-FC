@@ -127,7 +127,7 @@ header {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 12px;
 
     margin-top: 8px;
 
@@ -138,10 +138,10 @@ header {
     color: white;
     text-decoration: none;
 
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
 
-    padding: 9px 14px;
+    padding: 9px 13px;
 
     border: 1px solid var(--gold);
     border-radius: 6px;
@@ -201,9 +201,6 @@ header {
         url("https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=1800&q=85")
         center center / cover no-repeat;
 }
-
-
-/* Czerwona poświata */
 
 .hero::before {
     content: "";
@@ -365,6 +362,35 @@ header {
     font-weight: bold;
 }
 
+.team-box {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    font-weight: bold;
+}
+
+.team-logo {
+    width: 75px;
+    height: 75px;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+
+    border: 2px solid var(--gold);
+
+    background: white;
+
+    padding: 5px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.12);
+}
+
 .vs {
     color: var(--red);
 
@@ -391,40 +417,6 @@ header {
     color: var(--red);
 
     margin-right: 5px;
-}
-
-
-/* =========================
-   LOGA DRUŻYN
-========================= */
-
-.team-logo {
-    width: 75px;
-    height: 75px;
-
-    object-fit: contain;
-
-    border-radius: 50%;
-
-    border: 2px solid var(--gold);
-
-    background: white;
-
-    padding: 5px;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.12);
-}
-
-.team-box {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 12px;
-
-    font-weight: bold;
 }
 
 
@@ -469,7 +461,7 @@ section {
 
 
 /* =========================
-   SOCIAL
+   SOCIAL MEDIA
 ========================= */
 
 .social-section {
@@ -667,21 +659,21 @@ footer p {
     }
 
     .header-right {
-        gap: 12px;
+        gap: 8px;
     }
 
     .players-link {
-        font-size: 12px;
+        font-size: 11px;
 
-        padding: 8px 11px;
+        padding: 8px 10px;
     }
 
     .social-links {
-        gap: 11px;
+        gap: 10px;
     }
 
     .social-links a {
-        font-size: 19px;
+        font-size: 18px;
     }
 }
 
@@ -703,9 +695,9 @@ footer p {
     }
 
     .brand h1 {
-        font-size: 14px;
+        font-size: 13px;
 
-        letter-spacing: .5px;
+        letter-spacing: .3px;
     }
 
     .logo-container {
@@ -714,31 +706,29 @@ footer p {
     }
 
     .header-right {
-        gap: 9px;
+        gap: 7px;
 
         margin-top: 10px;
     }
 
     .players-link {
-        padding: 7px 9px;
+        padding: 6px 8px;
 
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .social-links {
-        gap: 9px;
+        gap: 8px;
     }
 
     .social-links a {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .hero {
         min-height: 480px;
 
         padding: 55px 15px 90px;
-
-        background-position: center center;
     }
 
     .hero-logo {
@@ -818,12 +808,12 @@ footer p {
     }
 
     .brand h1 {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .logo-container {
-        width: 40px;
-        height: 40px;
+        width: 39px;
+        height: 39px;
     }
 
     .header-right {
@@ -843,11 +833,11 @@ footer p {
     }
 
     .social-links {
-        gap: 8px;
+        gap: 7px;
     }
 
     .social-links a {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .hero h2 {
@@ -889,6 +879,20 @@ footer p {
 
     <div class="header-right">
 
+
+        <!-- TABELA -->
+
+        <a
+            href="tabela.html"
+            class="players-link">
+
+            TABELA
+
+        </a>
+
+
+        <!-- ZAWODNICY -->
+
         <a
             href="zawodnicy.html"
             class="players-link">
@@ -897,6 +901,8 @@ footer p {
 
         </a>
 
+
+        <!-- SOCIAL MEDIA -->
 
         <div class="social-links">
 
@@ -947,18 +953,22 @@ footer p {
 
     <div class="hero-content">
 
+
         <img
             class="hero-logo"
             src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
             alt="Blanquirojos F.C.">
 
+
         <h2>
             BLANQUIROJOS F.C.
         </h2>
 
+
         <p>
             Más que un equipo
         </p>
+
 
         <a
             href="#mecz"
@@ -968,30 +978,39 @@ footer p {
 
         </a>
 
+
     </div>
 
 </section>
 
 
 <!-- =========================
-     NEXT MATCH
+     NAJBLIŻSZY MECZ
 ========================= -->
 
 <div
     class="next-match"
     id="mecz">
 
+
     <span class="badge">
+
         LIGA FRATELO • TERCERA DIVISIÓN
+
     </span>
 
+
     <h2>
+
         NAJBLIŻSZY MECZ
+
     </h2>
 
 
     <div class="teams">
 
+
+        <!-- BLANQUIROJOS -->
 
         <div class="team-box">
 
@@ -999,6 +1018,7 @@ footer p {
                 class="team-logo"
                 src="https://i.postimg.cc/rzvpfwX4/6f542e62-af4a-4678-ad66-29202e18d6d6.jpg"
                 alt="Blanquirojos F.C.">
+
 
             <span>
                 BLANQUIROJOS F.C.
@@ -1012,12 +1032,15 @@ footer p {
         </span>
 
 
+        <!-- RYWAL -->
+
         <div class="team-box">
 
             <img
                 class="team-logo"
                 src="https://i.postimg.cc/sBx2xQCY/IMG-5872.jpg"
                 alt="Lions de Costa">
+
 
             <span>
                 LIONS DE COSTA
@@ -1030,6 +1053,7 @@ footer p {
 
 
     <div class="match-info">
+
 
         <span>
 
@@ -1057,13 +1081,14 @@ footer p {
 
         </span>
 
+
     </div>
 
 </div>
 
 
 <!-- =========================
-     MAIN CONTENT
+     GŁÓWNA TREŚĆ
 ========================= -->
 
 <div class="container">
@@ -1075,8 +1100,11 @@ footer p {
 
 <section class="social-section">
 
+
     <h2 class="section-title">
+
         BLANQUIROJOS W SIECI
+
     </h2>
 
 
@@ -1206,6 +1234,7 @@ footer p {
 
 <footer>
 
+
     <strong>
         BLANQUIROJOS F.C.
     </strong>
@@ -1219,6 +1248,7 @@ footer p {
     <p>
         © 2026 Blanquirojos F.C.
     </p>
+
 
 </footer>
 
