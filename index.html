@@ -3,178 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blanquirojos F.C.</title>
-
+    <title>Blanquirojos F.C. - Oficjalna Strona Drużyny</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-red: #d32f2f;
+            --secondary-dark: #1a1a1a;
+            --accent-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --text-muted: #6c757d;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #111;
+            background-color: var(--bg-light);
+            color: var(--secondary-dark);
+            line-height: 1.6;
         }
 
         header {
-            background: #111;
-            color: white;
-            padding: 25px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 32px;
-            letter-spacing: 2px;
-        }
-
-        header p {
-            margin-top: 8px;
-            color: #ccc;
-        }
-
-        nav {
-            background: #c8102e;
+            background-color: var(--secondary-dark);
+            color: var(--accent-white);
+            padding: 1rem 2rem;
             display: flex;
-            justify-content: center;
-            gap: 25px;
-            padding: 14px;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--primary-red);
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand img {
+            height: 50px;
+            width: auto;
+        }
+
+        .brand h1 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .social-links a {
+            color: var(--accent-white);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-red);
         }
 
         .hero {
-            min-height: 420px;
+            background: linear-gradient(135deg, var(--secondary-dark) 0%, #333 100%);
+            color: var(--accent-white);
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .match-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .match-badge {
+            background-color: var(--primary-red);
+            color: var(--accent-white);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .match-teams {
             display: flex;
+            justify-content: space-around;
             align-items: center;
+            margin: 1.5rem 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .vs {
+            color: var(--primary-red);
+            font-size: 1rem;
+        }
+
+        .match-details {
+            color: #ccc;
+            font-size: 0.95rem;
+            display: flex;
             justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
             text-align: center;
-            background: linear-gradient(#0008, #0008),
-                        url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=80")
-                        center/cover;
-            color: white;
-            padding: 30px;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            position: relative;
         }
 
-        .hero h2 {
-            font-size: 48px;
-            margin-bottom: 15px;
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-red);
+            margin: 0.5rem auto 0;
         }
 
-        .hero p {
-            font-size: 20px;
+        .squad-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
         }
 
-        section {
-            max-width: 1000px;
-            margin: auto;
-            padding: 50px 20px;
-        }
-
-        section h2 {
+        .player-card {
+            background: var(--accent-white);
+            border-radius: 8px;
+            padding: 1.5rem;
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-red);
+            transition: transform 0.2s ease;
         }
 
-        .match {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
+        .player-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .player-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-red);
+        }
+
+        .player-name {
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .player-role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        .placeholder-box {
+            background: var(--accent-white);
+            border-radius: 8px;
+            padding: 2rem;
             text-align: center;
-            box-shadow: 0 5px 20px #0001;
-        }
-
-        .match h3 {
-            font-size: 26px;
-            margin-bottom: 10px;
-        }
-
-        .match p {
-            margin: 8px;
-            color: #555;
+            color: var(--text-muted);
+            border: 2px dashed #dee2e6;
         }
 
         footer {
-            background: #111;
-            color: white;
+            background-color: var(--secondary-dark);
+            color: var(--accent-white);
             text-align: center;
-            padding: 30px;
-        }
-
-        @media (max-width: 600px) {
-            .hero h2 {
-                font-size: 34px;
-            }
-
-            nav {
-                gap: 12px;
-                font-size: 13px;
-            }
+            padding: 1.5rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
         }
     </style>
 </head>
-
 <body>
 
-<header>
-    <h1>BLANQUIROJOS F.C.</h1>
-    <p>Costa Blanca · Temporada 2026/27</p>
-</header>
+    <header>
+        <div class="brand">
+            <img src="assets/logo.png" alt="Blanquirojos F.C. Logo">
+            <h1>Blanquirojos F.C.</h1>
+        </div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </header>
 
-<nav>
-    <a href="#">STRONA</a>
-    <a href="#mecz">MECZE</a>
-    <a href="#druzyna">DRUŻYNA</a>
-    <a href="#kontakt">KONTAKT</a>
-</nav>
+    <section class="hero">
+        <div class="match-card">
+            <span class="match-badge">Liga Fratelo • Tercera División</span>
+            <h3>Najbliższy Mecz</h3>
+            <div class="match-teams">
+                <span>Blanquirojos F.C.</span>
+                <span class="vs">VS</span>
+                <span>Lions De Costa</span>
+            </div>
+            <div class="match-details">
+                <span><i class="far fa-calendar-alt"></i> 12.09.2026</span>
+                <span><i class="far fa-clock"></i> 21:00</span>
+                <span><i class="fas fa-map-marker-alt"></i> Torrevieja</span>
+            </div>
+        </div>
+    </section>
 
-<div class="hero">
-    <div>
-        <h2>BLANQUIROJOS F.C.</h2>
-        <p>Más que un equipo</p>
+    <div class="container">
+        <section>
+            <h2 class="section-title">Kadra Zespołu</h2>
+            <div class="squad-grid">
+                <div class="player-card">
+                    <div class="player-number">#3</div>
+                    <div class="player-name">Szymon Dino Przygoda</div>
+                    <div class="player-role">Zawodnik</div>
+                </div>
+                <div class="player-card">
+                    <div class="player-number">#26</div>
+                    <div class="player-name">Szymon Szcześniak</div>
+                    <div class="player-role">Zawodnik</div>
+                </div>
+                <div class="player-card">
+                    <div class="player-number"><i class="fas fa-user-shield"></i></div>
+                    <div class="player-name">Adam Czernia</div>
+                    <div class="player-role">Kapitan / Trener</div>
+                </div>
+                <div class="player-card">
+                    <div class="player-number">-</div>
+                    <div class="player-name">Bartek Piętka</div>
+                    <div class="player-role">Zawodnik</div>
+                </div>
+                <div class="player-card">
+                    <div class="player-number">-</div>
+                    <div class="player-name">Maciej Pawlicki</div>
+                    <div class="player-role">Zawodnik</div>
+                </div>
+                <div class="player-card">
+                    <div class="player-number">-</div>
+                    <div class="player-name">Piotr Tokaj</div>
+                    <div class="player-role">Zawodnik</div>
+                </div>
+                <div class="player-card">
+                    <div class="player-number">-</div>
+                    <div class="player-name">Nerijus</div>
+                    <div class="player-role">Zawodnik</div>
+                </div>
+                <div class="player-card">
+                    <div class="player-number">-</div>
+                    <div class="player-name">Dariusz Jadczak</div>
+                    <div class="player-role">Zawodnik</div>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 3rem;">
+            <h2 class="section-title">Tabela i Wyniki</h2>
+            <div class="placeholder-box">
+                <i class="fas fa-trophy fa-2x" style="margin-bottom: 0.5rem; color: #ccc;"></i>
+                <p>Sezon 2026/2027 startuje wkrótce! Wyniki i tabela ligowa pojawią się po pierwszej kolejce.</p>
+            </div>
+        </section>
     </div>
-</div>
 
-<section id="mecz">
-    <h2>NAJBLIŻSZY MECZ</h2>
-
-    <div class="match">
-        <h3>BLANQUIROJOS F.C. vs RYWAL</h3>
-        <p>📅 Data meczu</p>
-        <p>⏰ Godzina</p>
-        <p>📍 Torrevieja</p>
-    </div>
-</section>
-
-<section id="druzyna">
-    <h2>DRUŻYNA</h2>
-
-    <div class="match">
-        <h3>BLANQUIROJOS F.C.</h3>
-        <p>Sezon 2026/27</p>
-        <p>Skład drużyny już wkrótce</p>
-    </div>
-</section>
-
-<section id="kontakt">
-    <h2>KONTAKT</h2>
-
-    <div class="match">
-        <p>Blanquirojos F.C.</p>
-        <p>Costa Blanca, España</p>
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 Blanquirojos F.C.</p>
-</footer>
+    <footer>
+        <p>&copy; 2026 Blanquirojos F.C. Wszelkie prawa zastrzeżone.</p>
+    </footer>
 
 </body>
 </html>
